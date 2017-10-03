@@ -1,18 +1,16 @@
-# 現代 JavaScript 作弊表
+# Modern JavaScript Cheatsheet
 
 ![Modern JavaScript cheatsheet](https://i.imgur.com/aexPxMb.png)
-<small>Image Credits: [Ahmad Awais ⚡️](https://github.com/ahmadawais)</small>
+<small>圖像 信用: [Ahmad Awais ⚡️](https://github.com/ahmadawais)</small>
 
 ## 介紹
 
 ### 動機
 
-This document is a cheatsheet for JavaScript you will frequently encounter in modern projects and most contemporary sample code.
 這個文件是一個給 JavaScript 的作弊表 在現代的示例程式碼和現代專案你將會經常地遭遇到.
 
-This guide is not intended to teach you JavaScript from the ground up, but to help developers with basic knowledge who may struggle to get familiar with modern codebases (or let's say to learn React for instance) because of the JavaScript concepts used.
 這個指南不打算從頭開始教你 JavaScript ,
-而是為了幫助有基本知識的開發者可以盡力去熟悉用現代代碼庫( 或讓我們說為了學React實例 )因為 JavaScript  概念習慣的.
+而是為了幫助有基本知識的開發者可以盡力去熟悉用現代代碼庫( 或讓我們說為了學 React 實例 )因為 JavaScript  概念被使用.
 
 
 
@@ -20,11 +18,12 @@ Besides, I will sometimes provide personal tips that may be debatable but will t
 此外,我將有時提供個人秘訣可能是可爭論的但是將小心提到它是一個個人建議當我這樣做.
 
 
-> **Note:** Most of the concepts introduced here are coming from a JavaScript language update (ES2015, often called ES6). You can find new features added by this update [here](http://es6-features.org); it's very well done.
+> **注意:** 這裡介紹的大部分概念來自於JavaScript語言更新（ES2015，通常稱為ES6）. 透過這個更新你可以發現新特色 [這裡](http://es6-features.org); 做得很好.
 
-### Complementary Resources
+### 補充資源
 
 When you struggle to understand a notion, I suggest you look for answers on the following resources:
+當你盡力去了解概念, 我建議你在以下資源尋找答案：
 
 - [MDN (Mozilla Developer Network)](https://developer.mozilla.org/en-US/search?q=)
 - [You don't know JS (book)](https://github.com/getify/You-Dont-Know-JS)
@@ -34,11 +33,11 @@ When you struggle to understand a notion, I suggest you look for answers on the 
 - [Google](https://www.google.com/) to find specific blog and resources
 - [StackOverflow](https://stackoverflow.com/questions/tagged/javascript)
 
-## Table of Contents
+## 內容的表格
 
 - [Modern JavaScript cheatsheet](#modern-javascript-cheatsheet)
-  * [Introduction](#introduction)
-    + [Motivation](#motivation)
+  * [介紹](#介紹)
+    + [Motivation](#動機)
     + [Complementary resources](#complementary-resources)
   * [Table of contents](#table-of-contents)
   * [Notions](#notions)
