@@ -32,10 +32,11 @@
 - [StackOverflow (程式設計問答網站)](https://stackoverflow.com/questions/tagged/javascript)
 
 ## 目錄
-- [Modern JavaScript cheatsheet](#modern-javascript-cheatsheet)  
-  * [介紹](#介紹)  
-    + [動機](#動機)   
-    + [補充資源](#補充資源)  
+- [Modern JavaScript cheatsheet](#modern-javascript-cheatsheet)
+  *[介紹](#介紹)
+    +[動機](#動機)  
+    +[補充資源](#補充資源)  
+
 
 
 
