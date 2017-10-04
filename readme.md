@@ -103,7 +103,7 @@
     + [範圍](#-範圍)
     + [變數變化](#-變數變化)
 
-## Notions
+## 概念
 
 ### Variable declaration: var, const, let
 
