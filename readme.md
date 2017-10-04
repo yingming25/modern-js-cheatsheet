@@ -52,7 +52,7 @@
       - [Useful resources](#useful-resources)
     + [Function default parameter value](#function-default-parameter-value)
       - [External resource](#external-resource-1)
-    + [Destructuring objects and arrays](#destructuring-objects-and-arrays)
+    + [解構賦值物件與陣列](#解構賦值物件與陣列)
       - [Explanation with sample code](#explanation-with-sample-code)
       - [Useful resources](#useful-resources-1)
     + [Array methods - map / filter / reduce](#array-methods---map--filter--reduce)
@@ -485,7 +485,7 @@ In other words, if you pass in *null* the default parameter **won't be applied**
 - [Default parameter value - ES6 Features](http://es6-features.org/#DefaultParameterValues)
 - [Default parameters - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters)
 
-### Destructuring objects and arrays
+### 解構賦值物件與陣列
 
 *Destructuring* is a convenient way of creating new variables by extracting some values from data stored in objects or arrays.
 
