@@ -50,7 +50,7 @@
         * [簡要](#簡要)
         * [*this* 參考](#this-參考)
       - [有用的資源](#有用的資源)
-    + [解構賦值物件和陣列](#destructuring-objects-and-arrays)
+    + [Destructuring objects and arrays](#destructuring-objects-and-arrays)
       - [Explanation with sample code](#explanation-with-sample-code)
       - [Useful resources](#useful-resources-1)
     + [Array methods - map / filter / reduce](#array-methods---map--filter--reduce)
