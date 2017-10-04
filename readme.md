@@ -36,7 +36,7 @@
 - [Modern JavaScript cheatsheet](#modern-javascript-cheatsheet)
   * [介紹](#介紹)
     + [動機](#動機)
-    + [補充資源](#補充資源)
+    + [補充資源](#補充資源)
   * [目錄](#目錄)
   * [概念](#概念)
     + [變數宣告: var, const, let](#變數宣告-var-const-let)
