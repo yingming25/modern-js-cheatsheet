@@ -51,8 +51,8 @@
         * [*this* reference](#this-reference)
       - [Useful resources](#useful-resources)
     + [Function default parameter value](#function-default-parameter-value)
-      - [External resource](#external-resource-1)<br>
-    + [解構賦值物件與陣列](#destructuring-objects-and-arrays)
+      - [External resource](#external-resource-1)
+    + [Destructuring objects and arrays](#destructuring-objects-and-arrays)
       - [Explanation with sample code](#explanation-with-sample-code)
       - [Useful resources](#useful-resources-1)
     + [Array methods - map / filter / reduce](#array-methods---map--filter--reduce)
