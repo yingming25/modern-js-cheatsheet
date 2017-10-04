@@ -17,26 +17,26 @@
 此外,我將有時提供個人秘訣可能是可爭論的但是將小心提到它是一個個人建議當我這樣做.
 
 
-> **注意:** 這裡介紹的大部分概念來自於JavaScript語言更新（ES2015，通常稱為ES6）. 透過這個更新你可以發現新特色 [這裡](http://es6-features.org); 做得很好.
+> **注意:** 這裡介紹的大部分概念來自於 JavaScript 語言更新（ES2015，通常稱為ES6）. 透過這個更新你可以發現新特色 [這裡](http://es6-features.org); 做得很好.
 
 ### 補充資源
 
 當你盡力去了解概念, 我建議你在以下資源尋找答案：
 
-- [MDN (Mozilla 網路開發)](https://developer.mozilla.org/en-US/search?q=)
+- [MDN ( Mozilla 網路開發)](https://developer.mozilla.org/en-US/search?q=)
 - [你不知道的 JS (書)](https://github.com/getify/You-Dont-Know-JS)
 - [ES6 特性和例子](http://es6-features.org)
-- [WesBos 部落格 (ES6)](http://wesbos.com/category/es6/)
-- [Reddit (JavaScript)](https://www.reddit.com/r/javascript/)
-- [Google](https://www.google.com/) to find specific blog and resources
-- [StackOverflow](https://stackoverflow.com/questions/tagged/javascript)
+- [WesBos (男子名) 部落格 (ES6)](http://wesbos.com/category/es6/)
+- [Reddit (新聞網站名) (JavaScript)](https://www.reddit.com/r/javascript/)
+- [ Google ](https://www.google.com/) to find specific blog and resources
+- [StackOverflow (技術問題問答交流網站)](https://stackoverflow.com/questions/tagged/javascript)
 
 ## 內容的表格
 
 - [Modern JavaScript cheatsheet](#modern-javascript-cheatsheet)
   * [介紹](#介紹)
-    + [Motivation](#動機)
-    + [Complementary resources](#complementary-resources)
+    + [動機](#動機)
+    + [補充資源](#補充資源)
   * [Table of contents](#table-of-contents)
   * [Notions](#notions)
     + [Variable declaration: var, const, let](#variable-declaration-var-const-let)
