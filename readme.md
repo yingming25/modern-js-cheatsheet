@@ -14,7 +14,6 @@
 
 
 
-Besides, I will sometimes provide personal tips that may be debatable but will take care to mention that it's a personal recommendation when I do so.
 此外,我將有時提供個人秘訣可能是可爭論的但是將小心提到它是一個個人建議當我這樣做.
 
 
@@ -22,13 +21,12 @@ Besides, I will sometimes provide personal tips that may be debatable but will t
 
 ### 補充資源
 
-When you struggle to understand a notion, I suggest you look for answers on the following resources:
 當你盡力去了解概念, 我建議你在以下資源尋找答案：
 
-- [MDN (Mozilla Developer Network)](https://developer.mozilla.org/en-US/search?q=)
-- [You don't know JS (book)](https://github.com/getify/You-Dont-Know-JS)
-- [ES6 Features with examples](http://es6-features.org)
-- [WesBos blog (ES6)](http://wesbos.com/category/es6/)
+- [MDN (Mozilla 網路開發)](https://developer.mozilla.org/en-US/search?q=)
+- [你不知道的 JS (書)](https://github.com/getify/You-Dont-Know-JS)
+- [ES6 特性和例子](http://es6-features.org)
+- [WesBos 部落格 (ES6)](http://wesbos.com/category/es6/)
 - [Reddit (JavaScript)](https://www.reddit.com/r/javascript/)
 - [Google](https://www.google.com/) to find specific blog and resources
 - [StackOverflow](https://stackoverflow.com/questions/tagged/javascript)
