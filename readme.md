@@ -34,9 +34,9 @@
 ## 目錄
 
 - [Modern JavaScript cheatsheet](#modern-javascript-cheatsheet)
-  * [Introduction](#introduction)
-    + [Motivation](#motivation)
-    + [Complementary resources](#complementary-resources)
+  * [介紹](#介紹)
+    + [動機](#動機)
+    + [補充資源](#補充資源)
   * [Table of contents](#table-of-contents)
   * [Notions](#notions)
     + [Variable declaration: var, const, let](#variable-declaration-var-const-let)
