@@ -26,15 +26,15 @@
 - [MDN ( Mozilla 網路開發)](https://developer.mozilla.org/en-US/search?q=)
 - [你不知道的 JS (書)](https://github.com/getify/You-Dont-Know-JS)
 - [ES6 特性和例子](http://es6-features.org)
-- [WesBos (男子名) 部落格 (ES6)](http://wesbos.com/category/es6/)
+- [WesBos 部落格 (ES6)](http://wesbos.com/category/es6/)
 - [Reddit (電子布告欄) (JavaScript)](https://www.reddit.com/r/javascript/)
 - [ Google ](https://www.google.com/) 為了搜尋明確的部落格和資源
 - [StackOverflow (程式設計問答網站)](https://stackoverflow.com/questions/tagged/javascript)
 
 ## 目錄
 - [Modern JavaScript cheatsheet](#modern-javascript-cheatsheet)
-  * [介紹](#介紹)
-    + [動機](#動機)
+  * [介紹](#介紹)
+    + [動機](#動機)
     + [補充資源](#補充資源)
 
 ## 概念
