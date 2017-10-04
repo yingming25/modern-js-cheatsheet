@@ -50,8 +50,6 @@
         * [簡要](#簡要)
         * [*this* 參考](#this-參考)
       - [有用的資源](#有用的資源)
-    + [函式預設參數](#函式預設參數)
-      - [外部資源](#外部資源-1)
     + [Destructuring objects and arrays](#destructuring-objects-and-arrays)
       - [Explanation with sample code](#explanation-with-sample-code)
       - [Useful resources](#useful-resources-1)
