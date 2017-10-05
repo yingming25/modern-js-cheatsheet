@@ -56,20 +56,20 @@
       - [有用資源](#useful-resources-14)
     + [陣列方法 - map / filter / reduce](#array-methods---map--filter--reduce)
       - [示例代碼](#sample-code-2)
-      - [說明](#explanation)
+      - [示例代碼說明](#explanation-with-sample-code-0)
         * [Array.prototype.map()](#arrayprototypemap)
         * [Array.prototype.filter()](#arrayprototypefilter)
         * [Array.prototype.reduce()](#arrayprototypereduce)
       - [外部資源](#external-resource-2)
     + [展開運算子 "..."](#spread-operator-)
       - [示例代碼](#sample-code-3)
-      - [說明](#explanation-1)
+      - [示例代碼說明](#explanation-with-sample-code-33)
         * [迭代用法 (如同 array)](#in-iterables-like-array-25)
         * [函式剩餘參數](#function-rest-parameter)
         * [物件屬性擴展](#object-properties-spreading)
       - [外部資源](#external-resources)
     + [Object 屬性簡寫](#object-property-shorthand-29)
-      - [說明](#explanation-30)
+      - [示例代碼說明](#explanation-with-sample-code--34)
       - [外部資源](#external-resources-31)
     + [Promises](#promises)
       - [示例代碼](#sample-code-4)
@@ -634,7 +634,7 @@ console.log(aboveTenSum) // 44 -- 10 (Nick) + 15 (John) + 19 (Julia), Nathalie b
 ```
 
 
-#### <a name="explanation"></a> 說明
+#### <a name="explanation-with-sample-code-0"></a> 示例代碼說明
 
 Let's consider the following array of numbers for our examples:
 
@@ -789,7 +789,7 @@ console.log(n); // { x: 1, y: 2, a: 3, b: 4 }
 ```
 
 
-#### <a name="explanation-1"></a> 說明
+#### <a name="explanation-with-sample-code-33"></a> 示例代碼說明
 
 ##### <a name="in-iterables-like-array-25"></a> 迭代用法 (如同 array)
 
@@ -897,7 +897,7 @@ const myObj = { x };
 console.log(myObj.x) // 10
 ```
 
-#### <a name="explanation-30"></a> 說明
+#### <a name="explanation-with-sample-code--34"></a> 示例代碼說明
 
 Usually (pre-ES2015) when you declare a new *object literal* and want to use variables as object properties values, you would write this kind of code:
 
