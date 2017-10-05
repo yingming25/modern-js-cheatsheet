@@ -335,7 +335,6 @@ function myFunc() {
 }
 ```
 
-
 #### <a name="detailed-explanation-1"></a> 詳細說明
 
 ##### <a name="concision"> 簡要
@@ -411,8 +410,7 @@ When there is no argument provided to an arrow function, you need to provide par
   }
 ```
 
-
-##### <a name="this-reference"></a> *this* reference
+##### <a name="this-reference"></a> *this* 參考
 
 To understand this subtlety introduced with arrow functions, you must know how [this](#this_def) behaves in JavaScript.
 
@@ -453,14 +451,13 @@ function myFunc() {
 }
 ```
 
-
-#### <a name="useful-resources"></a> Useful resources
+#### <a name="useful-resources"></a> 有用的資源
 
 - [Arrow functions introduction - WesBos](http://wesbos.com/arrow-functions/)
 - [JavaScript arrow function - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
 - [Arrow function and lexical *this*](https://hackernoon.com/javascript-es6-arrow-functions-and-lexical-this-f2a3e2a5e8c4)
 
-### <a name="notions"></a> Function default parameter value
+### <a name="function-default-parameter-value"></a> 函式預設參數
 
 Starting from ES2015 JavaScript update, you can set default value to your function parameters using the following syntax:
 
@@ -484,21 +481,18 @@ In other words, if you pass in *null* the default parameter **won't be applied**
 
 > **Note:** Default value assignment can be used with destructured parameters as well (see next notion to see an example)
 
-<a name="notions"></a>
-#### External resource
+#### <a name="external-resource-1"></a> 外部資源
 
 - [Default parameter value - ES6 Features](http://es6-features.org/#DefaultParameterValues)
 - [Default parameters - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters)
 
-<a name="destructuring-objects-and-arrays"></a>
-### 解構賦值物件與陣列
+### <a name="destructuring-objects-and-arrays"></a> objects 和 arrays 的解構
 
 *Destructuring* is a convenient way of creating new variables by extracting some values from data stored in objects or arrays.
 
 To name a few use cases, *destructuring* can be used to destructure function parameters or *this.props* in React projects for instance.
 
-<a name="notions"></a>
-#### Explanation with sample code
+#### <a name="explanation-with-sample-code-13"></a> 示例代碼說明
 
 - Object
 
@@ -592,15 +586,13 @@ console.log(x) // "a"
 console.log(y) // "b"
 ```
 
-<a name="notions"></a>
-#### Useful resources
+#### <a name="notions"></a>有用資源
 
 - [ES6 Features - Destructuring Assignment](http://es6-features.org/#ArrayMatching)
 - [Destructuring Objects - WesBos](http://wesbos.com/destructuring-objects/)
 - [ExploringJS - Destructuring](http://exploringjs.com/es6/ch_destructuring.html)
 
-<a name="notions"></a>
-### Array methods - map / filter / reduce
+### <a name="array-methods---map--filter--reduce"></a> 陣列方法 - map / filter / reduce
 
 *Map*, *filter* and *reduce* are array methods that are coming from a programming paradigm named [*functional programming*](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0).
 
@@ -614,8 +606,7 @@ I recommend to use them as much as possible in following the principles of funct
 
 With those three methods, you can avoid the use of *for* and *forEach* loops in most situations. When you are tempted to do a *for* loop, try to do it with *map*, *filter* and *reduce* composed. You might struggle to do it at first because it requires you to learn a new way of thinking, but once you've got it things gets easier.
 
-<a name="notions"></a>
-#### Sample code
+#### <a name="sample-code-2"></a> 示例代碼
 
 ```js
 const numbers = [0, 1, 2, 3, 4, 5, 6];
@@ -642,8 +633,8 @@ const aboveTenSum = students
 console.log(aboveTenSum) // 44 -- 10 (Nick) + 15 (John) + 19 (Julia), Nathalie below 10 is ignored
 ```
 
-<a name="notions"></a>
-#### Explanation
+
+#### <a name="explanation"></a> 說明
 
 Let's consider the following array of numbers for our examples:
 
@@ -651,8 +642,7 @@ Let's consider the following array of numbers for our examples:
 const numbers = [0, 1, 2, 3, 4, 5, 6];
 ```
 
-<a name="notions"></a>
-##### Array.prototype.map()
+##### <a name="arrayprototypemap"></a> Array.prototype.map()
 
 ```js
 const doubledNumbers = numbers.map(function(n) {
@@ -675,8 +665,7 @@ console.log(doubledNumbers); // [0, 2, 4, 6, 8, 10, 12]
 
 > **Note:** If you do not need to return a new array and just want to do a loop that has side effects, you might just want to use a for / forEach loop instead of a map.
 
-<a name="notions"></a>
-##### Array.prototype.filter()
+##### <a name="arrayprototypefilter"></a> Array.prototype.filter()
 
 ```js
 const evenNumbers = numbers.filter(function(n) {
@@ -687,8 +676,7 @@ console.log(evenNumbers); // [0, 2, 4, 6]
 
 We are using .filter on the *numbers* array, filter is iterating on each element of the array and passes it to our function. The goal of the function is to return a boolean that will determine whether the current value will be kept or not. Filter then returns the array with only the kept values.
 
-<a name="notions"></a>
-##### Array.prototype.reduce()
+##### <a name="arrayprototypereduce"></a> Array.prototype.reduce()
 
 The reduce method goal is to *reduce* all elements of the array it iterates on into a single value. How it aggregates those elements is up to you.
 
@@ -762,18 +750,15 @@ Function returns *acc* + *n* --> 15 + 6 --> 21
 
 As it is the last iteration step, **.reduce** returns 21.
 
-<a name="notions"></a>
-#### External Resource
+#### <a name="external-resource"></a> 外部資源
 
 - [Understanding map / filter / reduce in JS](https://hackernoon.com/understanding-map-filter-and-reduce-in-javascript-5df1c7eee464)
 
-<a name="notions"></a>
-### Spread operator "..."
+### <a name="spread-operator"></a> 展開運算子 "..."
 
 The spread operator ```...``` has been introduced with ES2015 and is used to expand elements of an iterable (like an array) into places where multiple elements can fit.
 
-<a name="notions"></a>
-#### Sample code
+#### <a name="sample-code-3"></a> 示例代碼
 
 ```js
 const arr1 = ["a", "b", "c"];
@@ -803,11 +788,10 @@ const n = { x, y, ...z };
 console.log(n); // { x: 1, y: 2, a: 3, b: 4 }
 ```
 
-<a name="notions"></a>
-#### Explanation
 
-<a name="notions"></a>
-##### In iterables (like arrays)
+#### <a name="explanation-1"></a> 說明
+
+##### <a name="in-iterables-like-array-25"></a> 迭代用法 (如同 array)
 
 If we have the two following arrays:
 
@@ -825,8 +809,7 @@ const arr1 = ["a", "b", "c"];
 const arr2 = [...arr1, "d", "e", "f"]; // ["a", "b", "c", "d", "e", "f"]
 ```
 
-<a name="notions"></a>
-##### Function rest parameter
+##### <a name="function-rest-parameter"></a> 函式剩餘參數
 
 In function parameters, we can use the rest operator to inject parameters into an array we can loop in. There is already an **argument** object bound to every function that is equal to an array of all the parameters passed into the function.
 
@@ -877,8 +860,8 @@ console.log(student);
 
 > **Note:** createStudent function is bad because we don't check if grades.length exists or is different from 0. But it's easier to read this way, so I didn't handle this case.
 
-<a name="notions"></a>
-##### Object properties spreading
+
+##### <a name="object-properties-spreading"></a> 物件屬性擴展
 
 For this one, I recommend you read previous explanations about the rest operator on iterables and function parameters.
 
@@ -897,16 +880,14 @@ console.log(n); // { x: 1, y: 2, a: 3, b: 4 }
 // Here z object properties are spread into n
 ```
 
-<a name="notions"></a>
-#### External resources
+#### <a name="external-resources"></a> 外部資源
 
 - [TC39 - Object rest/spread](https://github.com/tc39/proposal-object-rest-spread)
 - [Spread operator introduction - WesBos](https://github.com/wesbos/es6-articles/blob/master/28%20-%20Spread%20Operator%20Introduction.md)
 - [JavaScript & the spread operator](https://codeburst.io/javascript-the-spread-operator-a867a71668ca)
 - [6 Great uses of the spread operator](https://davidwalsh.name/spread-operator)
 
-<a name="notions"></a>
-### Object property shorthand
+### <a name="object-property-shorthand-29"></a> Object 屬性簡寫
 
 When assigning a variable to an object property, if the variable name is equal to the property name, you can do the following:
 
@@ -916,8 +897,7 @@ const myObj = { x };
 console.log(myObj.x) // 10
 ```
 
-<a name="notions"></a>
-#### Explanation
+#### <a name="explanation-30"></a> 說明
 
 Usually (pre-ES2015) when you declare a new *object literal* and want to use variables as object properties values, you would write this kind of code:
 
@@ -951,20 +931,17 @@ console.log(myObj.x) // 10
 console.log(myObj.y) // 20
 ```
 
-<a name="notions"></a>
-#### External resources
+#### <a name="external-resources-31"></a> 外部資源
 
 - [Property shorthand - ES6 Features](http://es6-features.org/#PropertyShorthand)
 
-<a name="notions"></a>
-### Promises
+### <a name="promises"></a> Promises
 
 A promise is an object which can be returned synchronously from an asynchronous function ([ref](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261#3cd0)).
 
 Promises can be used to avoid [callback hell](http://callbackhell.com/), and they are more and more frequently encountered in modern JavaScript projects.
 
-<a name="notions"></a>
-#### Sample code
+#### <a name="sample-code-4"></a> 示例代碼
 
 ```js
 const fetchingPosts = new Promise((res, rej) => {
@@ -978,8 +955,7 @@ fetchingPosts
   .catch(err => console.log(err));
 ```
 
-<a name="notions"></a>
-#### Explanation
+#### <a name="explanation-3"></a> Explanation
 
 When you do an *Ajax request* the response is not synchronous because you want a resource that takes some time to come. It even may never come if the resource you have requested is unavailable for some reason (404).
 
@@ -991,8 +967,7 @@ To handle that kind of situations, ES2015 has given us *promises*. Promises can 
 
 Let's say we want to use promises to handle an Ajax request to fetch the resource X.
 
-<a name="notions"></a>
-##### Create the promise
+##### <a name="create-the-promise"></a> Create the promise
 
 We firstly are going to create a promise. We will use the jQuery get method to do our Ajax request to X.
 
@@ -1014,8 +989,7 @@ As seen in the above sample, the Promise object takes an *executor* function whi
 
 The promise is in pending state after instance creation and it's *executor* function is executed immediately. Once one of the function *resolve* or *reject* is called in the *executor* function, the promise will call its associated handlers.
 
-<a name="notions"></a>
-##### Promise handlers usage
+##### <a name="promise-handlers-usage"></a> Promise 處理器運用
 
 To get the promise result (or error), we must attach to it handlers by doing the following:
 
@@ -1035,8 +1009,7 @@ If it fails, *reject* is executed and the function passed as ```.catch``` parame
 
 > **Note :** If the promise has already been fulfilled or rejected when a corresponding handler is attached, the handler will be called, so there is no race condition between an asynchronous operation completing and its handlers being attached. [(Ref: MDN)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#Description)
 
-<a name="notions"></a>
-#### External Resources
+#### <a name="external-resources"></a> 外部資源
 
 - [JavaScript Promises for dummies - Jecelyn Yeen](https://scotch.io/tutorials/javascript-promises-for-dummies)
 - [JavaScript Promise API - David Walsh](https://davidwalsh.name/promises)
@@ -1045,15 +1018,13 @@ If it fails, *reject* is executed and the function passed as ```.catch``` parame
 - [JavaScript Promises: an Introduction - Jake Archibald](https://developers.google.com/web/fundamentals/getting-started/primers/promises)
 - [Promise documentation - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 
-<a name="notions"></a>
-### Template literals
+### <a name="template-literals"></a> 模板字面量
 
 Template literals is an [*expression interpolation*](https://en.wikipedia.org/wiki/String_interpolation) for single and multiple-line strings.
 
 In other words, it is a new string syntax in which you can conveniently use any JavaScript expressions (variables for instance).
 
-<a name="notions"></a>
-#### Sample code
+#### <a name="sample-code-5"></a> 示例代碼
 
 ```js
 const name = "Nick";
@@ -1062,14 +1033,12 @@ const name = "Nick";
 // Hello Nick, the following expression is equal to four: 4
 ```
 
-<a name="notions"></a>
-#### External resources
+#### <a name="external-resources-2"></a> 外部資源
 
 - [String interpolation - ES6 Features](http://es6-features.org/#StringInterpolation)
 - [ES6 Template Strings - Addy Osmani](https://developers.google.com/web/updates/2015/01/ES6-Template-Strings)
 
-<a name="notions"></a>
-### Tagged template literals
+### <a name="tagged-template-literals"></a> 標記模板字面量
 
 Template tags are *functions that can be prefixed to a [template literal](#template-literals)*. When a function is called this way, the first parameter is an array of the *strings* that appear between the template's interpolated variables, and the subsequent paremeters are the interpolated values. Use a spread operator `...` to capture all of them. [(Ref: MDN)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_template_literals).
 
@@ -1107,23 +1076,19 @@ comma`I like ${snacks} to snack on.`;
 // "I like apples, bananas, cherries to snack on."
 ```
 
-<a name="notions"></a>
-#### External resources
+#### <a name="external-resources-4"></a> 外部資源
 - [Wes Bos on Tagged Template Literals](http://wesbos.com/tagged-template-literals/)
 - [Library of common template tags](https://github.com/declandewet/common-tags)
 
-<a name="notions"></a>
-### Imports / Exports
+### <a name="imports--exports"></a> Imports / Exports
 
 ES6 modules are used to access variables or functions in a module explicitly exported by the modules it imports.
 
 I highly recommend to take a look at MDN resources on import/export (see external resources below), it is both straightforward and complete.
 
-<a name="notions"></a>
-#### Explanation with sample code
+#### <a name="explanation-with-sample-code-1"></a> 示例代碼說明
 
-<a name="notions"></a>
-##### Named exports
+##### <a name="named-exports"></a> 命名 exports
 
 Named exports are used to export several values from a module.
 
@@ -1158,8 +1123,8 @@ Besides, you can do aliases but the syntax is different from the one used in des
 import { foo as bar } from 'myFile.js'; // foo is imported and injected into a new bar variable
 ```
 
-<a name="notions"></a>
-##### Default import / export
+
+##### <a name="default-import--export"></a> Default import / export
 
 Concerning the default export, there is only a single default export per module. A default export can be a function, a class, an object or anything else. This value is considered the "main" exported value since it will be the simplest to import. [Ref: MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export#Description)
 
@@ -1191,8 +1156,7 @@ const result = sum(1, 2);
 console.log(result) // 3
 ```
 
-<a name="notions"></a>
-#### External resources
+#### <a name="external-resources-3"></a> 外部資源
 
 - [ES6 Modules in bulletpoints](https://ponyfoo.com/articles/es6#modules)
 - [Export - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export)
@@ -1202,7 +1166,7 @@ console.log(result) // 3
 - [Misunderstanding ES6 Modules - Kent C. Dodds](https://medium.com/@kentcdodds/misunderstanding-es6-modules-upgrading-babel-tears-and-a-solution-ad2d5ab93ce0)
 - [Modules in JavaScript](http://exploringjs.com/es6/ch_modules.html#sec_modules-in-javascript)
 
-### <a name="this_def"></a> JavaScript *this*
+### <a name="-javascript-this"></a> JavaScript *this*
 
 *this* operator behaves differently than in other languages and is in most cases determined by how a function is called. ([Ref: MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)).
 
@@ -1237,14 +1201,12 @@ person.myFunc("test") // person Object -- The bind method has no effect on the o
 myBoundFunc("test") // "hello" -- myBoundFunc is person.myFunc with "hello" bound to *this*
 ```
 
-<a name="notions"></a>
-#### External resources
+#### <a name="external-resources-4"></a> 外部資源
 
 - [Understanding JavaScript Function Invocation and "this" - Yehuda Katz](http://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/)
 - [JavaScript this - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
 
-<a name="notions"></a>
-### Class
+### <a name="class"></a> Class
 
 JavaScript is a [prototype-based](https://en.wikipedia.org/wiki/Prototype-based_programming) language (whereas Java is [class-based](https://en.wikipedia.org/wiki/Class-based_programming) language, for instance). ES6 has introduced JavaScript classes which are meant to be a syntactic sugar for prototype-based inheritance and **not** a new class-based inheritance model ([ref](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)).
 
@@ -1256,8 +1218,7 @@ Since this document is not an attempt to teach you the language from the ground 
 - [A plain English guide to JS prototypes - Sebastian Porto](http://sporto.github.io/blog/2013/02/22/a-plain-english-guide-to-javascript-prototypes/)
 - [Inheritance and the prototype chain - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
 
-<a name="notions"></a>
-#### Samples
+#### <a name="Samples"></a> 示例
 
 Before ES6, prototype syntax:
 
@@ -1290,8 +1251,7 @@ console.log(myPerson.age) // 23
 console.log(myPerson.stringSentence()) // "Hello, my name is Manu and I'm 23
 ```
 
-<a name="notions"></a>
-#### External resources
+#### <a name="external-resources-5"></a> 外部資源
 
 For prototype understanding:
 
@@ -1305,8 +1265,7 @@ For classes understanding:
 - [ES6 Features - Classes](http://es6-features.org/#ClassDefinition)
 - [JavaScript Classes - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)
 
-<a name="notions"></a>
-### Async Await
+### <a name="async-await"></a> Async Await
 
 In addition to [Promises](#promises), there is a new syntax you might encounter to handle asynchronous code named *async / await*.
 
@@ -1316,8 +1275,7 @@ The purpose of async/await functions is to simplify the behavior of using promis
 
 > **Note 2:** [*await* must be used in an *async* function](https://hackernoon.com/6-reasons-why-javascripts-async-await-blows-promises-away-tutorial-c7ec10518dd9#f3f0), which means that you can't use await in the top level of our code since that is not inside an async function.
 
-<a name="notions"></a>
-#### Sample code
+#### <a name="sample-code-6"></a> 示例代碼
 
 ```js
 async function getGithubUser(username) { // async keyword allows usage of await in the function and means function returns a promise
@@ -1332,8 +1290,7 @@ async function getGithubUser(username) { // async keyword allows usage of await 
 getGithubUser('mbeaudru').then(user => console.log(user)); // logging user response - cannot use await syntax since this code isn't in async function
 ```
 
-<a name="notions"></a>
-#### Explanation with sample code
+#### <a name="explanation-with-sample-code-2"></a> 示例代碼說明
 
 *Async / Await* is built on promises but they allow a more imperative style of code.
 
@@ -1420,8 +1377,7 @@ fetchPostById('gzIrzeo64')
 
 > **Note :** As you can see, *try / catch* are necessary to handle errors. But if you are making *express routes*, you can use a middleware to avoid error handling and have a very pleasant code to read. See [this article from Alex Bazhenov](https://medium.com/@Abazhenov/using-async-await-in-express-with-node-8-b8af872c0016) to learn more.
 
-<a name="notions"></a>
-#### External resources
+#### <a name="external-resources-6"></a> 外部資源
 
 - [Async/Await - JavaScript.Info](https://javascript.info/async-await)
 - [ES7 Async/Await](http://rossboucher.com/await/#/)
@@ -1432,8 +1388,7 @@ fetchPostById('gzIrzeo64')
 - [Await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
 - [Using async / await in express with node 8](https://medium.com/@Abazhenov/using-async-await-in-express-with-node-8-b8af872c0016)
 
-<a name="notions"></a>
-### Truthy / Falsy
+### <a name="truthy--falsy"></a> Truthy / Falsy
 
 In JavaScript, a truthy or falsy value is a value that is being casted into a boolean when evaluated in a boolean context. An example of boolean context would be the evaluation of an ```if``` condition:
 
@@ -1481,16 +1436,16 @@ myVar ? "truthy" : "falsy"
 
 myVar is evaluated in a boolean context.
 
-<a name="notions"></a>
-## Glossary
 
-### <a name="scope_def"></a> Scope
+## <a name="glossary"></a> 詞彙表
+
+### <a name="-scope"></a> 範圍
 
 The context in which values and expressions are "visible," or can be referenced. If a variable or other expression is not "in the current scope," then it is unavailable for use.
 
 Source: [MDN](https://developer.mozilla.org/en-US/docs/Glossary/Scope)
 
-### <a name="mutation_def"></a> Variable mutation
+### <a name="-variable-mutation"></a> 變數變化
 
 A variable is said to have been mutated when its initial value has changed afterward.
 
