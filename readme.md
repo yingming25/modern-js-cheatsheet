@@ -76,7 +76,7 @@
       - [說明](#explanation-3)
         * [創建 promise](#create-the-promise)
         * [Promise 處理器運用](#promise-handlers-usage)
-      - [外部資源](#external-resources)
+      - [外部資源](#external-resources-32)
     + [模板字面量](#template-literals)
       - [示例代碼](#sample-code-5)
       - [外部資源](#external-resources-2)
@@ -967,7 +967,7 @@ To handle that kind of situations, ES2015 has given us *promises*. Promises can 
 
 Let's say we want to use promises to handle an Ajax request to fetch the resource X.
 
-##### <a name="create-the-promise"></a> Create the promise
+##### <a name="create-the-promise"></a> 創建 promise
 
 We firstly are going to create a promise. We will use the jQuery get method to do our Ajax request to X.
 
@@ -1009,7 +1009,7 @@ If it fails, *reject* is executed and the function passed as ```.catch``` parame
 
 > **Note :** If the promise has already been fulfilled or rejected when a corresponding handler is attached, the handler will be called, so there is no race condition between an asynchronous operation completing and its handlers being attached. [(Ref: MDN)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#Description)
 
-#### <a name="external-resources"></a> 外部資源
+#### <a name="external-resources-32"></a> 外部資源
 
 - [JavaScript Promises for dummies - Jecelyn Yeen](https://scotch.io/tutorials/javascript-promises-for-dummies)
 - [JavaScript Promise API - David Walsh](https://davidwalsh.name/promises)
