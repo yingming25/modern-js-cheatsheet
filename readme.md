@@ -52,7 +52,7 @@
     + [函式預設參數](#function-default-parameter-value)
       - [外部資源](#external-resource-1)
     + [objects 和 arrays 的解構](#destructuring-objects-and-arrays-12)
-      - [說明和範例程式碼](#explanation-with-sample-code-13)
+      - [示例代碼說明](#explanation-with-sample-code-13)
       - [有用資源](#useful-resources-14)
     + [陣列方法 - map / filter / reduce](#array-methods---map--filter--reduce)
       - [示例代碼](#sample-code-2)
