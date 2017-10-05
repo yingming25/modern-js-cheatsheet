@@ -63,13 +63,13 @@
       - [外部資源](#external-resource-2)
     + [展開運算子 "..."](#spread-operator-)
       - [示例代碼](#sample-code-3)
-      - [Explanation](#explanation-1)
+      - [說明](#explanation-1)
         * [迭代用法 (如同 array)](#in-iterables-like-array-25)
         * [函式剩餘參數](#function-rest-parameter)
         * [物件屬性擴展](#object-properties-spreading)
       - [外部資源](#external-resources)
     + [Object 屬性簡寫](#object-property-shorthand-29)
-      - [Explanation](#explanation-2)
+      - [說明](#explanation-2)
       - [外部資源](#external-resources-31)
     + [Promises](#promises)
       - [示例代碼](#sample-code-4)
@@ -94,7 +94,7 @@
       - [外部資源](#external-resources-5)
     + [Async Await](#async-await)
       - [示例代碼](#sample-code-6)
-      - [Explanation with sample code](#explanation-with-sample-code-2)
+      - [示例代碼說明](#explanation-with-sample-code-2)
       - [外部資源](#external-resources-6)
     + [Truthy / Falsy](#truthy--falsy)
       - [外部資源](#external-resources-7)
@@ -789,7 +789,7 @@ console.log(n); // { x: 1, y: 2, a: 3, b: 4 }
 ```
 
 
-#### <a name="explanation-with-sample-code-33"></a> 示例代碼說明
+#### <a name="explanation-1"></a> 說明
 
 ##### <a name="in-iterables-like-array-25"></a> 迭代用法 (如同 array)
 
@@ -897,7 +897,7 @@ const myObj = { x };
 console.log(myObj.x) // 10
 ```
 
-#### <a name="explanation-with-sample-code--34"></a> 示例代碼說明
+#### <a name="explanation-2"></a> 說明
 
 Usually (pre-ES2015) when you declare a new *object literal* and want to use variables as object properties values, you would write this kind of code:
 
