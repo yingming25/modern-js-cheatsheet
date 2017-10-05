@@ -88,7 +88,7 @@
         * [預設 import / export](#default-import--export)
       - [外部資源](#external-resources-3)
     + [JavaScript *this*](#-javascript-this)
-      - [外部資源](#external-resources-4)
+      - [外部資源](#external-resources-42)
     + [Class](#class)
       - [示例](#samples)
       - [外部資源](#external-resources-5)
@@ -1201,7 +1201,7 @@ person.myFunc("test") // person Object -- The bind method has no effect on the o
 myBoundFunc("test") // "hello" -- myBoundFunc is person.myFunc with "hello" bound to *this*
 ```
 
-#### <a name="external-resources-4"></a> 外部資源
+#### <a name="external-resources-42"></a> 外部資源
 
 - [Understanding JavaScript Function Invocation and "this" - Yehuda Katz](http://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/)
 - [JavaScript this - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)
