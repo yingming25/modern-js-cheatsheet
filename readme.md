@@ -63,7 +63,7 @@
       - [外部資源](#external-resource-2)
     + [展開運算子 "..."](#spread-operator-)
       - [示例代碼](#sample-code-3)
-      - [說明](#explanation-1)
+      - [說明](#explanation-1)
         * [迭代用法 (如同 array)](#in-iterables-like-array-25)
         * [函式剩餘參數](#function-rest-parameter)
         * [物件屬性擴展](#object-properties-spreading)
