@@ -299,7 +299,7 @@ person = ["Nick"] // raises an error, because reassignment is not allowed with c
 - [How let and const are scoped in JavaScript - WesBos](http://wesbos.com/javascript-scoping/)
 - [Temporal Dead Zone (TDZ) Demystified](http://jsrocks.org/2015/01/temporal-dead-zone-tdz-demystified)
 
-### <a name="arrow_func_concept"></a> 箭頭函式
+### <a name="-arrow-function"></a> 箭頭函式
 
 The ES6 JavaScript update has introduced *arrow functions*, which is another way to declare and use functions. Here are the benefits they bring:
 
@@ -307,7 +307,7 @@ The ES6 JavaScript update has introduced *arrow functions*, which is another way
 - *this* is picked up from surroundings
 - implicit return
 
-#### <a name="sample-code-1"></a> Sample code
+#### <a name="sample-code-1"></a> 示例代碼
 
 - Concision and implicit return
 
@@ -336,9 +336,9 @@ function myFunc() {
 ```
 
 
-#### <a name="detailed-explanation-1"></a> Detailed explanation
+#### <a name="detailed-explanation-1"></a> 詳細說明
 
-##### Concision
+##### <a name="concision"> 簡要
 
 Arrow functions are more concise than traditional functions in many ways. Let's review all the possible cases:
 
@@ -411,8 +411,8 @@ When there is no argument provided to an arrow function, you need to provide par
   }
 ```
 
-<a name="notions"></a>
-##### *this* reference
+
+##### <a name="this-reference"></a> *this* reference
 
 To understand this subtlety introduced with arrow functions, you must know how [this](#this_def) behaves in JavaScript.
 
@@ -453,15 +453,14 @@ function myFunc() {
 }
 ```
 
-<a name="notions"></a>
-#### Useful resources
+
+#### <a name="useful-resources"></a> Useful resources
 
 - [Arrow functions introduction - WesBos](http://wesbos.com/arrow-functions/)
 - [JavaScript arrow function - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)
 - [Arrow function and lexical *this*](https://hackernoon.com/javascript-es6-arrow-functions-and-lexical-this-f2a3e2a5e8c4)
 
-<a name="notions"></a>
-### Function default parameter value
+### <a name="notions"></a> Function default parameter value
 
 Starting from ES2015 JavaScript update, you can set default value to your function parameters using the following syntax:
 
