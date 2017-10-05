@@ -486,7 +486,7 @@ In other words, if you pass in *null* the default parameter **won't be applied**
 - [Default parameter value - ES6 Features](http://es6-features.org/#DefaultParameterValues)
 - [Default parameters - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters)
 
-### <a name="destructuring-objects-and-arrays"></a> objects 和 arrays 的解構
+### <a name="destructuring-objects-and-arrays-12"></a> objects 和 arrays 的解構
 
 *Destructuring* is a convenient way of creating new variables by extracting some values from data stored in objects or arrays.
 
