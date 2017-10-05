@@ -90,7 +90,7 @@
     + [JavaScript *this*](#-javascript-this)
       - [外部資源](#external-resources-42)
     + [Class](#class)
-      - [示例](#示例)
+      - [示例](#samples)
       - [外部資源](#external-resources-5)
     + [Async Await](#async-await)
       - [示例代碼](#sample-code-6)
@@ -1218,7 +1218,7 @@ Since this document is not an attempt to teach you the language from the ground 
 - [A plain English guide to JS prototypes - Sebastian Porto](http://sporto.github.io/blog/2013/02/22/a-plain-english-guide-to-javascript-prototypes/)
 - [Inheritance and the prototype chain - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
 
-#### <a name="samples-code-52"></a> 示例代碼
+#### <a name="samples"></a> 示例
 
 Before ES6, prototype syntax:
 
