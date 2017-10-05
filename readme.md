@@ -1124,7 +1124,7 @@ import { foo as bar } from 'myFile.js'; // foo is imported and injected into a n
 ```
 
 
-##### <a name="default-import--export"></a> Default import / export
+##### <a name="default-import--export"></a> 預設 import / export
 
 Concerning the default export, there is only a single default export per module. A default export can be a function, a class, an object or anything else. This value is considered the "main" exported value since it will be the simplest to import. [Ref: MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export#Description)
 
