@@ -1,25 +1,23 @@
-# Modern JavaScript Cheatsheet
+# <a name="modern-javascript-cheatsheet"></a> Modern JavaScript Cheatsheet
 
 ![Modern JavaScript cheatsheet](https://i.imgur.com/aexPxMb.png)
 <small>圖像 信用: [Ahmad Awais ⚡️](https://github.com/ahmadawais)</small>
 
-## 介紹
+## <a name="introduction"></a> 介紹
 
-### 動機
+### <a name="motivation"></a> 動機
 
 這個文件是一個給 JavaScript 的作弊表 在現代的示例程式碼和現代專案你將會經常地遭遇到.
 
 這個指南不打算從頭開始教你 JavaScript ,
 而是為了幫助有基本知識的開發者可以盡力去熟悉用現代代碼庫( 或讓我們說為了學 React 實例 )因為 JavaScript  概念被使用.
 
-
-
 此外,我將有時提供個人秘訣可能是可爭論的但是將小心提到它是一個個人建議當我這樣做.
 
 
 > **注意:** 這裡介紹的大部分概念來自於 JavaScript 語言更新（ES2015，通常稱為ES6）. 透過這個更新你可以發現新特色 [這裡](http://es6-features.org); 做得很好.
 
-### 補充資源
+### <a name="complementary-resources"></a> 補充資源
 
 當你盡力去了解概念, 我建議你在以下資源尋找答案：
 
@@ -31,8 +29,8 @@
 - [ Google ](https://www.google.com/) 為了搜尋明確的部落格和資源
 - [StackOverflow (程式設計問答網站)](https://stackoverflow.com/questions/tagged/javascript)
 
-<a name="table-of-contents"></a>
-## 目錄
+
+## <a name="table-of-contents"></a> 目錄
 
 - [Modern JavaScript cheatsheet](#modern-javascript-cheatsheet)
   * [介紹](#introduction)
@@ -104,16 +102,14 @@
     + [範圍](#-scope)
     + [變數變化](#-variable-mutation)
 
-<a name="notions"></a>
-## 概念
 
-<a name="notions"></a>
-### Variable declaration: var, const, let
+## <a name="notions"></a> 概念
+
+### <a name="variable-declaration-var-const-let"></a> 變數宣告: var, const, let
 
 In JavaScript, there are three keywords available to declare a variable, and each has its differences. Those are ```var```, ```let``` and ```const```.
 
-<a name="notions"></a>
-#### Short explanation
+#### <a name="short-explanation"></a> 簡短說明
 
 Variables declared with ```const``` keyword can't be reassigned, while ```let``` and ```var``` can.
 
@@ -150,8 +146,7 @@ I recommend always declaring your variables with ```const``` by default, and wit
   </tr>
 </table>
 
-<a name="notions"></a>
-#### Sample code
+#### <a name="sample-code"></a> 示例代碼
 
 ```javascript
 const person = "Nick";
@@ -164,8 +159,7 @@ person = "John";
 console.log(person) // "John", reassignment is allowed with let
 ```
 
-<a name="notions"></a>
-#### Detailed explanation
+#### <a name="detailed-explanation"></a> 詳細說明
 
 The [*scope*](#scope_def) of a variable roughly means "where is this variable available in the code".
 
@@ -299,13 +293,13 @@ console.log(person[0]) // "John"
 person = ["Nick"] // raises an error, because reassignment is not allowed with const declared variables
 ```
 
-<a name="notions"></a>
-#### External resource
+
+#### <a name="external-resource"></a> 外部資源
 
 - [How let and const are scoped in JavaScript - WesBos](http://wesbos.com/javascript-scoping/)
 - [Temporal Dead Zone (TDZ) Demystified](http://jsrocks.org/2015/01/temporal-dead-zone-tdz-demystified)
 
-### <a name="arrow_func_concept"></a> Arrow function
+### <a name="arrow_func_concept"></a> 箭頭函式
 
 The ES6 JavaScript update has introduced *arrow functions*, which is another way to declare and use functions. Here are the benefits they bring:
 
