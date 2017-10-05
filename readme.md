@@ -754,7 +754,7 @@ As it is the last iteration step, **.reduce** returns 21.
 
 - [Understanding map / filter / reduce in JS](https://hackernoon.com/understanding-map-filter-and-reduce-in-javascript-5df1c7eee464)
 
-### <a name="spread-operator"></a> 展開運算子 "..."
+### <a name="spread-operator-"></a> 展開運算子 "..."
 
 The spread operator ```...``` has been introduced with ES2015 and is used to expand elements of an iterable (like an array) into places where multiple elements can fit.
 
