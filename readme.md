@@ -60,7 +60,7 @@
         * [Array.prototype.map()](#arrayprototypemap)
         * [Array.prototype.filter()](#arrayprototypefilter)
         * [Array.prototype.reduce()](#arrayprototypereduce)
-      - [外部資源](#external-resource)
+      - [外部資源](#external-resource-2)
     + [展開運算子 "..."](#spread-operator-)
       - [示例代碼](#sample-code-3)
       - [說明](#explanation-1)
@@ -750,7 +750,7 @@ Function returns *acc* + *n* --> 15 + 6 --> 21
 
 As it is the last iteration step, **.reduce** returns 21.
 
-#### <a name="external-resource"></a> 外部資源 
+#### <a name="external-resource-2"></a> 外部資源 
 
 - [Understanding map / filter / reduce in JS](https://hackernoon.com/understanding-map-filter-and-reduce-in-javascript-5df1c7eee464)
 
