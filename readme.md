@@ -586,7 +586,7 @@ console.log(x) // "a"
 console.log(y) // "b"
 ```
 
-#### <a name="notions"></a>有用資源
+#### <a name="useful-resources-14"></a>有用資源
 
 - [ES6 Features - Destructuring Assignment](http://es6-features.org/#ArrayMatching)
 - [Destructuring Objects - WesBos](http://wesbos.com/destructuring-objects/)
