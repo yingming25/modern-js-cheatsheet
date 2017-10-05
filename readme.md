@@ -955,7 +955,7 @@ fetchingPosts
   .catch(err => console.log(err));
 ```
 
-#### <a name="explanation-3"></a> Explanation
+#### <a name="explanation-3"></a> 說明
 
 When you do an *Ajax request* the response is not synchronous because you want a resource that takes some time to come. It even may never come if the resource you have requested is unavailable for some reason (404).
 
