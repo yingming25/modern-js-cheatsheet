@@ -1218,7 +1218,7 @@ Since this document is not an attempt to teach you the language from the ground 
 - [A plain English guide to JS prototypes - Sebastian Porto](http://sporto.github.io/blog/2013/02/22/a-plain-english-guide-to-javascript-prototypes/)
 - [Inheritance and the prototype chain - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
 
-#### <a name="Samples"></a> 示例
+#### <a name="samples"></a> 示例
 
 Before ES6, prototype syntax:
 
