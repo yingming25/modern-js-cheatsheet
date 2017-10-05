@@ -90,7 +90,7 @@
     + [JavaScript *this*](#-javascript-this)
       - [外部資源](#external-resources-42)
     + [Class](#class)
-      - [示例代碼](#samples-code-52)
+      - [示例](#示例)
       - [外部資源](#external-resources-5)
     + [Async Await](#async-await)
       - [示例代碼](#sample-code-6)
