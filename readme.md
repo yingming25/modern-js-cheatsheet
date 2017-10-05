@@ -97,7 +97,6 @@
       - [示例代碼說明](#explanation-with-sample-code-2)
       - [外部資源](#external-resources-6)
     + [Truthy / Falsy](#truthy--falsy)
-      - [外部資源](#external-resources-7)
   * [詞彙表](#glossary)
     + [範圍](#-scope)
     + [變數變化](#-variable-mutation)
