@@ -307,8 +307,7 @@ The ES6 JavaScript update has introduced *arrow functions*, which is another way
 - *this* is picked up from surroundings
 - implicit return
 
-<a name="notions"></a>
-#### Sample code
+#### <a name="sample-code-1"></a> Sample code
 
 - Concision and implicit return
 
@@ -336,8 +335,8 @@ function myFunc() {
 }
 ```
 
-<a name="notions"></a>
-#### Detailed explanation
+
+#### <a name="detailed-explanation-1"></a> Detailed explanation
 
 ##### Concision
 
