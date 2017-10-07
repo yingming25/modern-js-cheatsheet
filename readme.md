@@ -201,9 +201,11 @@ function myFunction() {
     // actually, myVar being function scoped, we just erased the previous myVar value "Nick" for "John"<br>
     //事實上, myVar 是函數範圍的, 我們只是擦拭之前 myVar 值 "Nick" 給 "John"
   }
-  console.log(myVar); // "John" - see how the instructions in the if block affected this value
+  console.log(myVar); // "John" - see how the instructions in the if block affected this value<br>
+  //"John" - 看在 if 區塊裡如何說明這個值受影響
 }
-console.log(myVar); // Throws a ReferenceError, myVar is not accessible outside the function.
+console.log(myVar); // Throws a ReferenceError, myVar is not accessible outside the function.<br>
+//拋出一個參考錯誤, 這個函數外部 myVar 是不能可訪問的
 ```
 
 Besides, *var* declared variables are moved to the top of the scope at execution. This is what we call [var hoisting](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var#var_hoisting).
