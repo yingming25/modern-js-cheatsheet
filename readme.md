@@ -306,32 +306,37 @@ To sum it up, *const* variables:<br>
 
 ```js
 const myVar = "Nick";
-myVar = "John" // raises an error, reassignment is not allowed
+myVar = "John" // raises an error, reassignment is not allowed 引發錯誤,不允許重新分配
 ```
 
 ```js
 const myVar = "Nick";
-const myVar = "John" // raises an error, re-declaration is not allowed
+const myVar = "John" // raises an error, re-declaration is not allowed 引發錯誤, 不允許重新宣告
 ```
 
-<a name="const_mutable_sample"></a> But there is a subtlety : ```const``` variables are not [**immutable**](#mutation_def) ! Concretely, it means that *object* and *array* ```const``` declared variables **can** be mutated.
+<a name="const_mutable_sample"></a> But there is a subtlety : ```const``` variables are not [**immutable**](#mutation_def) ! Concretely, it means that *object* and *array* ```const``` declared variables **can** be mutated.<br>
+<a name="const_mutable_sample"></a>但有一個微妙之處: ```const``` 變數不是 [**不變**](#mutation_def) ! 具體地, 它意味著 *物件* 與 *陣列* ```const``` 宣告變數 **可以** 被改變.
 
-For objects:
+對於物件:
 ```js
 const person = {
   name: 'Nick'
 };
-person.name = 'John' // this will work ! person variable is not completely reassigned, but mutated
+person.name = 'John' // this will work ! person variable is not completely reassigned, but mutated<br>
+// 這能運行 ! person 變數沒有完全重新分配, 但改變
 console.log(person.name) // "John"
-person = "Sandra" // raises an error, because reassignment is not allowed with const declared variables
+person = "Sandra" // raises an error, because reassignment is not allowed with const declared variables<br>
+//引發錯誤, 因為重新分配不被允許用 const 宣告變數
 ```
 
-For arrays:
+對於陣列:
 ```js
 const person = [];
-person.push('John'); // this will work ! person variable is not completely reassigned, but mutated
+person.push('John'); // this will work ! person variable is not completely reassigned, but mutated<br>
+//這能運行 ! person 變數沒有完全重新分配, 但改變
 console.log(person[0]) // "John"
-person = ["Nick"] // raises an error, because reassignment is not allowed with const declared variables
+person = ["Nick"] // raises an error, because reassignment is not allowed with const declared variables<br>
+因為重新分配是不被允許用 const 宣告變數
 ```
 
 
