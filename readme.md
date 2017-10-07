@@ -126,28 +126,28 @@ I recommend always declaring your variables with ```const``` by default, and wit
 <table>
   <tr>
     <th></th>
-    <th>Scope</th>
-    <th>Reassignable</th>
-    <th>Mutable</th>
-   <th><a href="#tdz_sample">Temporal Dead Zone</a></th>
+    <th>範圍</th>
+    <th>重新指派</th>
+    <th>可變的</th>
+   <th><a href="#tdz_sample">暫時性死區</a></th>
   </tr>
   <tr>
     <th>const</th>
-    <td>Block</td>
+    <td>區塊</td>
     <td>No</td>
     <td><a href="#const_mutable_sample">Yes</a></td>
     <td>Yes</td>
   </tr>
   <tr>
     <th>let</th>
-    <td>Block</td>
+    <td>區塊</td>
     <td>Yes</td>
     <td>Yes</td>
     <td>Yes</td>
   </tr>
    <tr>
     <th>var</th>
-    <td>Function</td>
+    <td>函式</td>
     <td>Yes</td>
     <td>Yes</td>
     <td>No</td>
