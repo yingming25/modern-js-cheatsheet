@@ -267,31 +267,42 @@ console.log(myVar); // Throws a ReferenceError, myVar is not accessible outside 
 <a name="tdz_sample"></a> 現在,:意味著 *let* (and *const*) 變數在指派前不可使用
 
 ```js
-console.log(myVar) // raises a ReferenceError !
+console.log(myVar) // raises a ReferenceError !<br>
+// 引發一個參考錯誤
 let myVar = 2;
 ```
 
-By contrast with *var* variables, if you try to read or write on a *let* or *const* variable before they are assigned an error will be raised. This phenomenon is often called [*Temporal dead zone*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_Dead_Zone_and_errors_with_let) or *TDZ*.
+By contrast with *var* variables, if you try to read or write on a *let* or *const* variable before they are assigned an error will be raised. This phenomenon is often called [*Temporal dead zone*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_Dead_Zone_and_errors_with_let) or *TDZ*.<br>
+和 *var* 變數相比之下, 假如你嘗試去讀或寫一個 *let* or *const* 變數 在他們被指派之前 一個錯誤將被引發. 這個現象經常被稱為 [*暫時性死區*](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#Temporal_Dead_Zone_and_errors_with_let) or *TDZ*.
 
-> **Note:** Technically, *let* and *const* variables declarations are being hoisted too, but not their assignation. Since they're made so that they can't be used before assignation, it intuitively feels like there is no hoisting, but there is. Find out more on this [very detailed explanation here](http://jsrocks.org/2015/01/temporal-dead-zone-tdz-demystified) if you want to know more.
 
-In addition, you can't re-declare a *let* variable:
+> **Note:** Technically, *let* and *const* variables declarations are being hoisted too, but not their assignation. Since they're made so that they can't be used before assignation, it intuitively feels like there is no hoisting, but there is. Find out more on this [very detailed explanation here](http://jsrocks.org/2015/01/temporal-dead-zone-tdz-demystified) if you want to know more.<br>
+> **注意:** 技術上, *let* 和 *const* 變數宣告也是被提升, 但不是他們的分配. 因為它們是在分配之前不能使用的, 他直觀地感覺像沒有提升,但有. 了解更多信息[這裡非常詳細的說明](http://jsrocks.org/2015/01/temporal-dead-zone-tdz-demystified) 如果你想要知道更多.
+
+In addition, you can't re-declare a *let* variable:<br>
+此外, 你不能重新宣告一個 *let* 變數:
 
 ```js
 let myVar = 2;
-let myVar = 3; // Raises a SyntaxError
+let myVar = 3; // Raises a SyntaxError 引發一個語法錯誤
 ```
 
 ##### const
 
-```const``` declared variables behave like *let* variables, but also they can't be reassigned.
+```const``` declared variables behave like *let* variables, but also they can't be reassigned.<br>
+```const``` 宣告變數表現像  *let* 變數, 但他們也不能被重新分配.
 
-To sum it up, *const* variables:
+To sum it up, *const* variables:<br>
+總而言之, *const* 變數:
 
 - are *block scoped*
+- 是 *區塊範圍*
 - are not accessible before being assigned
+- 在被分配之前是不可使用的
 - can't be re-declared in the same scope
+- 在相同的範圍不能被重新宣告
 - can't be reassigned
+- 無法重新分配
 
 ```js
 const myVar = "Nick";
