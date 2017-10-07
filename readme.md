@@ -336,7 +336,7 @@ person.push('John'); // this will work ! person variable is not completely reass
 //這能運行 ! person 變數沒有完全重新分配, 但改變
 console.log(person[0]) // "John"
 person = ["Nick"] // raises an error, because reassignment is not allowed with const declared variables<br>
-因為重新分配是不被允許用 const 宣告變數
+//因為重新分配是不被允許用 const 宣告變數
 ```
 
 
