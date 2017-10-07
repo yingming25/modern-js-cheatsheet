@@ -202,7 +202,7 @@ function myFunction() {
     //事實上, myVar 是函數範圍的, 我們只是擦拭之前 myVar 值 "Nick" 給 "John"
   }
   console.log(myVar); // "John" - see how the instructions in the if block affected this value<br>
-  //"John" - 看在 if 區塊裡如何說明這個值受影響
+  //"John" - 看在 if 區塊中的指令如何影響這個值
 }
 console.log(myVar); // Throws a ReferenceError, myVar is not accessible outside the function.<br>
 //拋出一個參考錯誤, 這個函數外部 myVar 是不能可訪問的
@@ -230,7 +230,7 @@ myVar = 2;
 
 ##### let
 
-```var``` and ```let ``` are about the same, but ```let``` declared variables
+```var``` and ```let ``` are about the same, but ```let``` declared variables<br>
 ```var``` 與 ```let ``` 是差不多的,但 ```let``` 宣告變數
 
 - are *block scoped*
@@ -240,7 +240,8 @@ myVar = 2;
 - can't be re-declared in the same scope
 - 在相同的範圍不能被重複宣告
 
-Let's see the impact of block-scoping taking our previous example:
+Let's see the impact of block-scoping taking our previous example:<br>
+讓我們看這區塊範圍的影響以我們以前的例子:
 
 ```javascript
 function myFunction() {
@@ -248,16 +249,22 @@ function myFunction() {
   if (true) {
     let myVar = "John";
     console.log(myVar); // "John"
-    // actually, myVar being block scoped, we just created a new variable myVar.
-    // this variable is not accessible outside this block and totally independent
-    // from the first myVar created !
-  }
-  console.log(myVar); // "Nick", see how the instructions in the if block DID NOT affect this value
+    // actually, myVar being block scoped, we just created a new variable myVar.<br>
+    // 事實上, myVar 是區塊範圍, 我們只是創建一個新的變數 myVar
+    // this variable is not accessible outside this block and totally independent<br>
+    // 這個變數在這個區塊外面是不可使用的以及完全獨立的
+    // from the first myVar created !<br>
+    // 從第一個 myVar 被創造!<br> 
+  }
+  console.log(myVar); // "Nick", see how the instructions in the if block DID NOT affect this value!<br>
+  //"Nick", 看看 if 區塊裡的指令如何不影響這個值!
 }
-console.log(myVar); // Throws a ReferenceError, myVar is not accessible outside the function.
+console.log(myVar); // Throws a ReferenceError, myVar is not accessible outside the function.<br>
+//拋出一個參考錯誤, myVar 在這個函數外面是不可使用的.
 ```
 
-<a name="tdz_sample"></a> Now, what it means for *let* (and *const*) variables for not being accessible before being assigned:
+<a name="tdz_sample"></a> Now, what it means for *let* (and *const*) variables for not being accessible before being assigned:<br>
+<a name="tdz_sample"></a> 現在,:意味著 *let* (and *const*) 變數在指派前不可使用
 
 ```js
 console.log(myVar) // raises a ReferenceError !
