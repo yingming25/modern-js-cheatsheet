@@ -177,17 +177,20 @@ The [*scope*](#scope_def) of a variable roughly means "where is this variable av
 ```var``` declared variables are *function scoped*, meaning that when a variable is created in a function, everything in that function can access that variable. Besides, a *function scoped* variable created in a function can't be accessed outside this function.<br>
 ```var``` 宣告變數 是 *函式範圍*, 意味當一個變數在函式中被創建, 每件事(物)在函式裡可以訪問那變數. 此外, 一個 *函式範圍*, 變數在函式裡被創建不能被這個函式外訪問.
 
-I recommend you to picture it as if an *X scoped* variable meant that this variable was a property of X.
+I recommend you to picture it as if an *X scoped* variable meant that this variable was a property of X.<br>
+我建議你描寫一個* X範圍的*變量意味著這個變量是X的屬性。
+
 
 ```javascript
 function myFunction() {
   var myVar = "Nick";
-  console.log(myVar); // "Nick" - myVar is accessible inside the function
+  console.log(myVar); // "Nick" - myVar is accessible inside the function myVar可以在函數內部訪問
 }
-console.log(myVar); // Throws a ReferenceError, myVar is not accessible outside the function.
+console.log(myVar); // Throws a ReferenceError, myVar is not accessible outside the function.拋出一個參考錯誤，myVar在函數外不可訪問。
 ```
 
-Still focusing on the variable scope, here is a more subtle example:
+Still focusing on the variable scope, here is a more subtle example:<br>
+仍然關注在變數範圍, 這是一個更細微的範例:
 
 ```javascript
 function myFunction() {
@@ -195,8 +198,9 @@ function myFunction() {
   if (true) {
     var myVar = "John";
     console.log(myVar); // "John"
-    // actually, myVar being function scoped, we just erased the previous myVar value "Nick" for "John"
-  }
+    // actually, myVar being function scoped, we just erased the previous myVar value "Nick" for "John"<br>
+    //事實上, myVar 是函數範圍的, 我們只是擦拭之前 myVar 值 "Nick" 給 "John"
+  }
   console.log(myVar); // "John" - see how the instructions in the if block affected this value
 }
 console.log(myVar); // Throws a ReferenceError, myVar is not accessible outside the function.
