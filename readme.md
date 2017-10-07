@@ -208,12 +208,16 @@ console.log(myVar); // Throws a ReferenceError, myVar is not accessible outside 
 //拋出一個參考錯誤, 這個函數外部 myVar 是不能可訪問的
 ```
 
-Besides, *var* declared variables are moved to the top of the scope at execution. This is what we call [var hoisting](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var#var_hoisting).
+Besides, *var* declared variables are moved to the top of the scope at execution. This is what we call [var hoisting](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var#var_hoisting).<br>
+此外, *var* 宣告的變數在執行時移動到範圍的頂部。這就是我們所說的 [var hoisting]<br>
+(https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/var#var_hoisting).
 
-This portion of code:
+This portion of code:<br>
+這個代碼的部分:
+
 
 ```js
-console.log(myVar) // undefined -- no error raised
+console.log(myVar) // undefined -- no error raised 沒有錯誤提出
 var myVar = 2;
 ```
 
@@ -221,7 +225,7 @@ is understood at execution like:
 
 ```js
 var myVar;
-console.log(myVar) // undefined -- no error raised
+console.log(myVar) // undefined -- no error raised 沒有錯誤提出
 myVar = 2;
 ```
 
