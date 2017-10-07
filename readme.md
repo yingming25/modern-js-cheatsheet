@@ -231,10 +231,14 @@ myVar = 2;
 ##### let
 
 ```var``` and ```let ``` are about the same, but ```let``` declared variables
+```var``` 與 ```let ``` 是差不多的,但 ```let``` 宣告變數
 
 - are *block scoped*
+- 是 *區塊範圍*
 - are **not** accessible before they are assigned
+- 是 **不** 可使用的在他們被分配之前
 - can't be re-declared in the same scope
+- 在相同的範圍不能被重複宣告
 
 Let's see the impact of block-scoping taking our previous example:
 
