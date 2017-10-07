@@ -1,24 +1,29 @@
 # <a name="modern-javascript-cheatsheet"></a> Modern JavaScript Cheatsheet
 
 ![Modern JavaScript cheatsheet](https://i.imgur.com/aexPxMb.png)
-<small>圖像 信用: [Ahmad Awais ⚡️](https://github.com/ahmadawais)</small>
+<small>圖像 來源: [Ahmad Awais ⚡️](https://github.com/ahmadawais)</small>
 
 ## <a name="introduction"></a> 介紹
 
 ### <a name="motivation"></a> 動機
 
+This document is a cheatsheet for JavaScript you will frequently encounter in modern projects and most contemporary sample code.
 這個文件是一個給 JavaScript 的作弊表 在現代的示例程式碼和現代專案你將會經常地遭遇到.
 
+
+This guide is not intended to teach you JavaScript from the ground up, but to help developers with basic knowledge who may struggle to get familiar with modern codebases (or let's say to learn React for instance) because of the JavaScript concepts used.
 這個指南不打算從頭開始教你 JavaScript ,
 而是為了幫助有基本知識的開發者可以盡力去熟悉用現代代碼庫( 或讓我們說為了學 React 實例 )因為 JavaScript  概念被使用.
 
+Besides, I will sometimes provide personal tips that may be debatable but will take care to mention that it's a personal recommendation when I do so.
 此外,我將有時提供個人秘訣可能是可爭論的但是將小心提到它是一個個人建議當我這樣做.
 
-
+> **Note:** Most of the concepts introduced here are coming from a JavaScript language update (ES2015, often called ES6). You can find new features added by this update [here](http://es6-features.org); it's very well done.
 > **注意:** 這裡介紹的大部分概念來自於 JavaScript 語言更新（ES2015，通常稱為ES6）. 透過這個更新你可以發現新特色 [這裡](http://es6-features.org); 做得很好.
 
 ### <a name="complementary-resources"></a> 補充資源
 
+When you struggle to understand a notion, I suggest you look for answers on the following resources:
 當你盡力去了解概念, 我建議你在以下資源尋找答案：
 
 - [MDN ( Mozilla 網路開發)](https://developer.mozilla.org/en-US/search?q=)
@@ -107,12 +112,16 @@
 ### <a name="variable-declaration-var-const-let"></a> 變數宣告: var, const, let
 
 In JavaScript, there are three keywords available to declare a variable, and each has its differences. Those are ```var```, ```let``` and ```const```.
+在 JavaScript 裡, 有三個可用的關鍵字宣告變數, 以及每個有它們的不同. 那些是 ```var```, ```let``` and ```const```.
 
 #### <a name="short-explanation"></a> 簡短說明
 
+
 Variables declared with ```const``` keyword can't be reassigned, while ```let``` and ```var``` can.
+宣告變數用 ```const``` 關鍵字不能被重新分配, 然而 ```let``` 和 ```var``` 能.
 
 I recommend always declaring your variables with ```const``` by default, and with ```let``` if you need to *mutate* it or reassign it later.
+我總是推薦宣告你的變數用 ```const``` 透過預設, 以及用 ```let``` 如果之後你必須改變它或重新分配它.
 
 <table>
   <tr>
@@ -149,22 +158,24 @@ I recommend always declaring your variables with ```const``` by default, and wit
 
 ```javascript
 const person = "Nick";
-person = "John" // Will raise an error, person can't be reassigned
+person = "John" // Will raise an error, person can't be reassigned 會引發錯誤, person 不能被重新分配
 ```
 
 ```javascript
 let person = "Nick";
 person = "John";
-console.log(person) // "John", reassignment is allowed with let
+console.log(person) // "John", reassignment is allowed with let 用let重新分配是被允許的
 ```
 
 #### <a name="detailed-explanation"></a> 詳細說明
 
 The [*scope*](#scope_def) of a variable roughly means "where is this variable available in the code".
+這個 [*範圍*](#scope_def) 的變數大概的方法 "在程式碼中哪裡是這個變數可用的".
 
 ##### var
 
 ```var``` declared variables are *function scoped*, meaning that when a variable is created in a function, everything in that function can access that variable. Besides, a *function scoped* variable created in a function can't be accessed outside this function.
+```var``` 宣告變數 是 *函式範圍*, 意味當一個變數在函式中被創建, 每件事(物)在函式裡可以訪問那變數. 此外, 一個 *函式範圍*, 變數在函式裡被創建不能被這個函式外訪問.
 
 I recommend you to picture it as if an *X scoped* variable meant that this variable was a property of X.
 
