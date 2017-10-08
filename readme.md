@@ -198,13 +198,13 @@ function myFunction() {
   if (true) {
     var myVar = "John";
     console.log(myVar); // "John"
-    // actually, myVar being function scoped, we just erased the previous myVar value "Nick" for "John"<br>
+    // actually, myVar being function scoped, we just erased the previous myVar value "Nick" for "John"
     //事實上, myVar 是函數範圍的, 我們只是擦拭之前 myVar 值 "Nick" 給 "John"
   }
-  console.log(myVar); // "John" - see how the instructions in the if block affected this value<br>
+  console.log(myVar); // "John" - see how the instructions in the if block affected this value
   //"John" - 看在 if 區塊中的指令如何影響這個值
 }
-console.log(myVar); // Throws a ReferenceError, myVar is not accessible outside the function.<br>
+console.log(myVar); // Throws a ReferenceError, myVar is not accessible outside the function.
 //拋出一個參考錯誤, 這個函數外部 myVar 是不能可訪問的
 ```
 
@@ -230,7 +230,7 @@ myVar = 2;
 
 ##### let
 
-```var``` and ```let ``` are about the same, but ```let``` declared variables<br>
+```var``` and ```let ``` are about the same, but ```let``` declared variables
 ```var``` 與 ```let ``` 是差不多的,但 ```let``` 宣告變數
 
 - are *block scoped*
@@ -240,7 +240,7 @@ myVar = 2;
 - can't be re-declared in the same scope
 - 在相同的範圍不能被重複宣告
 
-Let's see the impact of block-scoping taking our previous example:<br>
+Let's see the impact of block-scoping taking our previous example:
 讓我們看這區塊範圍的影響以我們以前的例子:
 
 ```javascript
@@ -249,17 +249,17 @@ function myFunction() {
   if (true) {
     let myVar = "John";
     console.log(myVar); // "John"
-    // actually, myVar being block scoped, we just created a new variable myVar.<br>
+    // actually, myVar being block scoped, we just created a new variable myVar.
     // 事實上, myVar 是區塊範圍, 我們只是創建一個新的變數 myVar
-    // this variable is not accessible outside this block and totally independent<br>
+    // this variable is not accessible outside this block and totally independent
     // 這個變數在這個區塊外面是不可使用的以及完全獨立的
-    // from the first myVar created !<br>
+    // from the first myVar created !
     // 從第一個 myVar 被創造!<br> 
   }
-  console.log(myVar); // "Nick", see how the instructions in the if block DID NOT affect this value!<br>
+  console.log(myVar); // "Nick", see how the instructions in the if block DID NOT affect this value!
   //"Nick", 看看 if 區塊裡的指令如何不影響這個值!
 }
-console.log(myVar); // Throws a ReferenceError, myVar is not accessible outside the function.<br>
+console.log(myVar); // Throws a ReferenceError, myVar is not accessible outside the function.
 //拋出一個參考錯誤, myVar 在這個函數外面是不可使用的.
 ```
 
@@ -267,7 +267,7 @@ console.log(myVar); // Throws a ReferenceError, myVar is not accessible outside 
 <a name="tdz_sample"></a> 現在,:意味著 *let* (and *const*) 變數在指派前不可使用
 
 ```js
-console.log(myVar) // raises a ReferenceError !<br>
+console.log(myVar) // raises a ReferenceError !
 // 引發一個參考錯誤
 let myVar = 2;
 ```
@@ -322,20 +322,20 @@ const myVar = "John" // raises an error, re-declaration is not allowed 引發錯
 const person = {
   name: 'Nick'
 };
-person.name = 'John' // this will work ! person variable is not completely reassigned, but mutated<br>
+person.name = 'John' // this will work ! person variable is not completely reassigned, but mutated
 // 這能運行 ! person 變數沒有完全重新分配, 但改變
 console.log(person.name) // "John"
-person = "Sandra" // raises an error, because reassignment is not allowed with const declared variables<br>
+person = "Sandra" // raises an error, because reassignment is not allowed with const declared variables
 //引發錯誤, 因為重新分配不被允許用 const 宣告變數
 ```
 
 對於陣列:
 ```js
 const person = [];
-person.push('John'); // this will work ! person variable is not completely reassigned, but mutated<br>
+person.push('John'); // this will work ! person variable is not completely reassigned, but mutated
 //這能運行 ! person 變數沒有完全重新分配, 但改變
 console.log(person[0]) // "John"
-person = ["Nick"] // raises an error, because reassignment is not allowed with const declared variables<br>
+person = ["Nick"] // raises an error, because reassignment is not allowed with const declared variables
 //因為重新分配是不被允許用 const 宣告變數
 ```
 
@@ -347,29 +347,38 @@ person = ["Nick"] // raises an error, because reassignment is not allowed with c
 
 ### <a name="-arrow-function"></a> 箭頭函式
 
-The ES6 JavaScript update has introduced *arrow functions*, which is another way to declare and use functions. Here are the benefits they bring:
+The ES6 JavaScript update has introduced *arrow functions*, which is another way to declare and use functions. Here are the benefits they bring:<br>
+這 ES6 JavaScript 更新已經提出 *箭頭函式*, 是另一種宣告和使用函數的方法. 這裡是它帶來的好處:
 
 - More concise
+- 更簡潔
 - *this* is picked up from surroundings
+- *this* 從周圍拾起
 - implicit return
+- 返回值成為一部分
 
 #### <a name="sample-code-1"></a> 示例代碼
 
 - Concision and implicit return
+- 簡潔和隱含的回報
 
 ```js
-function double(x) { return x * 2; } // Traditional way
+function double(x) { return x * 2; } // Traditional way 傳統方式
 console.log(double(2)) // 4
 ```
 
 ```js
 const double = x => x * 2; // Same function written as an arrow function with implicit return
+//一些函式寫為一個箭頭函式帶有隱含的回報
 console.log(double(2)) // 4
 ```
 
 - *this* reference
 
-In an arrow function, *this* is equal to the *this* value of the enclosing execution context. Basically, with arrow functions, you don't have to do the "that = this" trick before calling a function inside a function anymore.
+- *this* 參考
+
+In an arrow function, *this* is equal to the *this* value of the enclosing execution context. Basically, with arrow functions, you don't have to do the "that = this" trick before calling a function inside a function anymore.<br>
+在一個箭頭函式中. *this* 等於 *this* 封閉執行內容的值. 基本上, 用箭頭函式, 你不必做 "that = this" 手法在函數中調用一個函數之前.
 
 ```js
 function myFunc() {
