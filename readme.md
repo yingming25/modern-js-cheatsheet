@@ -447,32 +447,38 @@ console.log(getPerson()) // { name: "Nick", age: 24 } -- object implicitly retur
 ```
 
 - Only one argument
+- 只有一個參數
 
-If your function only takes one parameter, you can omit the parenthesis around it. If we take back the above *double* code:
+If your function only takes one parameter, you can omit the parenthesis around it. If we take back the above *double* code:<br>
+如果你的函式只有一個參數, 你能省略周圍的小括號. 如果我們要取回上述 *兩倍* 程式碼:
 
 ```js
   const double = (x) => x * 2; // this arrow function only takes one parameter
+  //這個箭頭函式只需要一個參數
 ```
 
-Parenthesis around the parameter can be avoided:
+Parenthesis around the parameter can be avoided:<br>
 
 ```js
   const double = x => x * 2; // this arrow function only takes one parameter
+  //這個箭頭函式只需要一個參數
 ```
 
 - No arguments
+- 沒有參數
 
-When there is no argument provided to an arrow function, you need to provide parentheses, or it won't be valid syntax.
+When there is no argument provided to an arrow function, you need to provide parentheses, or it won't be valid syntax.<br>
+當沒有參數提供給一個箭頭函式, 你必須提供小括號, 否則它不會是有效的語法.
 
 ```js
-  () => { // parenthesis are provided, everything is fine
+  () => { // parenthesis are provided, everything is fine 小括號被提供, 一切很好
     const x = 2;
     return x;
   }
 ```
 
 ```js
-  => { // No parenthesis, this won't work!
+  => { // No parenthesis, this won't work! 沒有小括號, 這不會運行
     const x = 2;
     return x;
   }
@@ -480,37 +486,44 @@ When there is no argument provided to an arrow function, you need to provide par
 
 ##### <a name="this-reference"></a> *this* 參考
 
-To understand this subtlety introduced with arrow functions, you must know how [this](#this_def) behaves in JavaScript.
+To understand this subtlety introduced with arrow functions, you must know how [this](#this_def) behaves in JavaScript.<br>
+為了了解這個帶有箭頭函數的微妙之處, 你必須知道 [this](#this_def) 如何在 JavaScript 中表現.
 
-In an arrow function, *this* is equal to the *this* value of the enclosing execution context. What it means is that an arrow function doesn't create a new *this*, it grabs it from its surrounding instead.
+In an arrow function, *this* is equal to the *this* value of the enclosing execution context. What it means is that an arrow function doesn't create a new *this*, it grabs it from its surrounding instead.<br>
+在一個箭頭函數, *this* 等於 *this* 封閉執行內容的值. 它意思是一個箭頭函式不創建一個新的 *this*, 它從它的周圍抓住它
 
-Without arrow function, if you wanted to access a variable from *this* in a function inside a function, you had to use the *that = this* or *self = this* trick.
+Without arrow function, if you wanted to access a variable from *this* in a function inside a function, you had to use the *that = this* or *self = this* trick.<br>
+沒有箭頭函式, 如果你想要從一個函式裡面的函式存取一個變數, 你必須使用 *that = this* 或 *self = this* 技巧.
 
-For instance, using setTimeout function inside myFunc:
+For instance, using setTimeout function inside myFunc:<br>
+例如, 使用 setTimeout 函式裡面的 myFunc:
 
 ```js
 function myFunc() {
   this.myVar = 0;
-  var that = this; // that = this trick
+  var that = this; // that = this trick 技巧
   setTimeout(
     function() { // A new *this* is created in this function scope
+    //一個新的 *this* 被創建在這個函式範圍
       that.myVar++;
       console.log(that.myVar) // 1
 
-      console.log(this.myVar) // undefined -- see function declaration above
+      console.log(this.myVar) // undefined -- see function declaration above 見上面的函式宣告
     },
     0
   );
 }
 ```
 
-But with arrow function, *this* is taken from its surrounding:
+But with arrow function, *this* is taken from its surrounding:<br>
+但用箭頭函式, *this* 從他的周圍被取:
 
 ```js
 function myFunc() {
   this.myVar = 0;
   setTimeout(
     () => { // this taken from surrounding, meaning myFunc here
+    // this 從周圍取, 意味 myFunc 在這裡
       this.myVar++;
       console.log(this.myVar) // 1
     },
@@ -527,27 +540,36 @@ function myFunc() {
 
 ### <a name="function-default-parameter-value"></a> 函式預設參數
 
-Starting from ES2015 JavaScript update, you can set default value to your function parameters using the following syntax:
+Starting from ES2015 JavaScript update, you can set default value to your function parameters using the following syntax:<br>
+從 ES2015 開始 JavaScript 更新, 你可以設定預設值到你的函式參數使用以下語法:
 
 ```js
 function myFunc(x = 10) {
   return x;
 }
 console.log(myFunc()) // 10 -- no value is provided so x default value 10 is assigned to x in myFunc
+//10 -- 沒有值被提供所以預設值 10 被指派到 x 在 myFunc 中
 console.log(myFunc(5)) // 5 -- a value is provided so x is equal to 5 in myFunc
-
+//5 -- 一個值被提供所以 x 是等於5在 myFunc 中
 console.log(myFunc(undefined)) // 10 -- undefined value is provided so default value is assigned to x
+// 10 -- undefined 值被提供所以預設值被指派到 x
 console.log(myFunc(null)) // null -- a value (null) is provided, see below for more details
+// null -- 一個值 (null) 被提供, 請參閱下面的更多細節
 ```
 
-The default parameter is applied in two and only two situations:
+The default parameter is applied in two and only two situations:<br>
+這預設參數是被採用只在兩個狀況:
 
 - No parameter provided
+- 沒有參數提供
 - *undefined* parameter provided
+- *undefined* 參數提供
 
-In other words, if you pass in *null* the default parameter **won't be applied**.
+In other words, if you pass in *null* the default parameter **won't be applied**.<br>
+換一種說法, 如果你通過在 *null* 中這預設參數 **不被採用**
 
-> **Note:** Default value assignment can be used with destructured parameters as well (see next notion to see an example)
+> **Note:** Default value assignment can be used with destructured parameters as well (see next notion to see an example)<br>
+> **注意:** 預設值可以被很好的使用在構造參數 (看下一個概念來看一個例子)
 
 #### <a name="external-resource-1"></a> 外部資源
 
@@ -556,15 +578,19 @@ In other words, if you pass in *null* the default parameter **won't be applied**
 
 ### <a name="destructuring-objects-and-arrays-12"></a> objects 和 arrays 的解構
 
-*Destructuring* is a convenient way of creating new variables by extracting some values from data stored in objects or arrays.
+*Destructuring* is a convenient way of creating new variables by extracting some values from data stored in objects or arrays.<br>
+*解構* 是一個創建新變數的便利方法透過從資料儲存在物件或陣列提取一些值
 
-To name a few use cases, *destructuring* can be used to destructure function parameters or *this.props* in React projects for instance.
+To name a few use cases, *destructuring* can be used to destructure function parameters or *this.props* in React projects for instance.<br>
+舉幾個例子, *解構* 能被用在解構函式參數或 *this.props* 在 React 專案實例中
 
 #### <a name="explanation-with-sample-code-13"></a> 示例代碼說明
 
 - Object
+- 物件
 
-Let's consider the following object for all the samples:
+Let's consider the following object for all the samples:<br>
+讓我們為思考所有示例以下物件
 
 ```js
 const person = {
@@ -575,7 +601,8 @@ const person = {
 }
 ```
 
-Without destructuring
+Without destructuring<br>
+沒用解構
 
 ```js
 const first = person.firstName;
@@ -583,24 +610,33 @@ const age = person.age;
 const city = person.city || "Paris";
 ```
 
-With destructuring, all in one line:
+With destructuring, all in one line:<br>
+用解構, 所有在一行:
 
 ```js
-const { firstName: first, age, city = "Paris" } = person; // That's it !
+const { firstName: first, age, city = "Paris" } = person; // That's it ! 是的!
 
 console.log(age) // 35 -- A new variable age is created and is equal to person.age
+//35 -- 一個新 age 變數被創建以及等於 person.age
 console.log(first) // "Nick" -- A new variable first is created and is equal to person.firstName
+// "Nick" -- 一個新 first 被創建以及等於 person.firstName
 console.log(firstName) // Undefined -- person.firstName exists BUT the new variable created is named first
+// Undefined -- person.firstName 存在 但這個新的變數創建被命名 first
 console.log(city) // "Paris" -- A new variable city is created and since person.city is undefined, city is equal to the default value provided "Paris".
+// "Paris" -- 一個新的變數 city 被創建以及因為 person.city 是未定義, city 等於 這個預設值提供 "Paris".
 ```
 
-**Note :** In ```const { age } = person;```, the brackets after *const* keyword are not used to declare an object nor a block but is the *destructuring* syntax.
+**Note :** In ```const { age } = person;```, the brackets after *const* keyword are not used to declare an object nor a block but is the *destructuring* syntax.<br>
+**注意 :** 在 ```const { age } = person;``` 中. 這個在關鍵字 *const* 之後的大括號不是用來宣告一個物件也不是用來宣告一個區塊 但這個是 *解構*  語法.
 
 - Function parameters
+- 函式參數
 
-*Destructuring* is often used to destructure objects parameters in functions.
+*Destructuring* is often used to destructure objects parameters in functions.<br>
+*解構* 在函式中經常被用來解構物件參數
 
-Without destructuring
+Without destructuring<br>
+沒用解構
 
 ```js
 function joinFirstLastName(person) {
@@ -612,17 +648,21 @@ function joinFirstLastName(person) {
 joinFirstLastName(person); // "Nick-Anderson"
 ```
 
-In destructuring the object parameter *person*, we get a more concise function:
+In destructuring the object parameter *person*, we get a more concise function:<br>
+在解構這物件參數 *person*, 我們取得一個更簡潔的函式:
 
 ```js
 function joinFirstLastName({ firstName, lastName }) { // we create firstName and lastName variables by destructuring person parameter
+//我們創建 firstName 和 lastName 變數 透過解構 person 參數
   return firstName + '-' + lastName;
 }
 
 joinFirstLastName(person); // "Nick-Anderson"
 ```
 
-Destructuring is even more pleasant to use with [arrow functions](#arrow_func_concept):
+Destructuring is even more pleasant to use with [arrow functions](#arrow_func_concept):<br>
+解構是更愉快去使用 [arrow functions](#arrow_func_concept):
+
 
 ```js
 const joinFirstLastName = ({ firstName, lastName }) => firstName + '-' + lastName;
@@ -631,24 +671,28 @@ joinFirstLastName(person); // "Nick-Anderson"
 ```
 
 - Array
+- 陣列
 
-Lets consider the following array:
+Lets consider the following array:<br>
+讓我們思考以下陣列:
 
 ```js
 const myArray = ["a", "b", "c"];
 ```
 
-Without destructuring
+Without destructuring<br>
+沒用解構
 
 ```js
 const x = myArray[0];
 const y = myArray[1];
 ```
 
-With destructuring
+With destructuring<br>
+用解構
 
 ```js
-const [x, y] = myArray; // That's it !
+const [x, y] = myArray; // That's it ! 是的!
 
 console.log(x) // "a"
 console.log(y) // "b"
@@ -662,17 +706,27 @@ console.log(y) // "b"
 
 ### <a name="array-methods---map--filter--reduce"></a> 陣列方法 - map / filter / reduce
 
-*Map*, *filter* and *reduce* are array methods that are coming from a programming paradigm named [*functional programming*](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0).
+*Map*, *filter* and *reduce* are array methods that are coming from a programming paradigm named [*functional programming*](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0).<br>
+*Map*, *filter* and *reduce* 是陣列方法來自於一個編程範例稱作 [*functional programming*](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-functional-programming-7f218c68b3a0).
 
-To sum it up:
+
+To sum it up:<br>
+總而言之:
 
 - **Array.prototype.map()** takes an array, does something on its elements and returns an array with the transformed elements.
+- **Array.prototype.map()** 採取一個陣列, 在其元素上做某事以及返回一個陣列與轉化的元素.
 - **Array.prototype.filter()** takes an array, decides element by element if it should keep it or not and returns an array with the kept elements only
+- **Array.prototype.filter()** 採取一個陣列, 逐個元素決定假如它應該保留它或不保留以及返回一個陣列與只保留的元素
 - **Array.prototype.reduce()** takes an array and aggregates the elements into a single value (which is returned)
+- **Array.prototype.reduce()** 採取一個陣列以及聚合這元素們為單個值 (返回哪一個)
 
-I recommend to use them as much as possible in following the principles of functional programming because they are composable, concise and elegant.
+I recommend to use them as much as possible in following the principles of functional programming because they are composable, concise and elegant.<br>
+我建議盡量使用它們在以下函式程式設計原則中因為他們是可組合的, 簡潔與優雅的.
 
-With those three methods, you can avoid the use of *for* and *forEach* loops in most situations. When you are tempted to do a *for* loop, try to do it with *map*, *filter* and *reduce* composed. You might struggle to do it at first because it requires you to learn a new way of thinking, but once you've got it things gets easier.
+
+
+With those three methods, you can avoid the use of *for* and *forEach* loops in most situations. When you are tempted to do a *for* loop, try to do it with *map*, *filter* and *reduce* composed. You might struggle to do it at first because it requires you to learn a new way of thinking, but once you've got it things gets easier.<br>
+用這三種方法, 你可以避免使用 *for* 和 *forEach* 迴圈在大多的情況. 當你被誘惑去做一個 *for* 迴圈, 嘗試用 *map* 去做它, *filter* 和 *reduce* 組合. 你或許掙扎去做它在一開始因為它需要你學一個新的思考的方法, 但一但你有了它事情變得更容易.
 
 #### <a name="sample-code-2"></a> 示例代碼
 
@@ -683,7 +737,10 @@ const evenNumbers = numbers.filter(n => n % 2 === 0); // [0, 2, 4, 6]
 const sum = numbers.reduce((prev, next) => prev + next, 0); // 21
 ```
 
-Compute total grade sum for students above 10 by composing map, filter and reduce:
+Compute total grade sum for students above 10 by composing map, filter and reduce:<br>
+計算總成績加總給學生 10 以上透過 map 組成, filter and reduce:
+
+
 
 ```js
 const students = [
@@ -695,16 +752,20 @@ const students = [
 
 const aboveTenSum = students
   .map(student => student.grade) // we map the students array to an array of their grades
+  //我們 map 學生們陣列到一個他們成績的陣列
   .filter(grade => grade >= 10) // we filter the grades array to keep those above 10
+  //我們 filter 保持那些10以上成績陣列
   .reduce((prev, next) => prev + next, 0); // we sum all the grades above 10 one by one
+  //我們加總全部每一個10以上的成績
 
-console.log(aboveTenSum) // 44 -- 10 (Nick) + 15 (John) + 19 (Julia), Nathalie below 10 is ignored
+console.log(aboveTenSum) // 44 -- 10 (Nick) + 15 (John) + 19 (Julia), Nathalie below 10 is ignored 10以下被忽略
 ```
 
 
 #### <a name="explanation-with-sample-code-0"></a> 示例代碼說明
 
-Let's consider the following array of numbers for our examples:
+Let's consider the following array of numbers for our examples:<br>
+讓我們思考以下數字的陣列對於我們的例子:
 
 ```js
 const numbers = [0, 1, 2, 3, 4, 5, 6];
@@ -719,9 +780,12 @@ const doubledNumbers = numbers.map(function(n) {
 console.log(doubledNumbers); // [0, 2, 4, 6, 8, 10, 12]
 ```
 
-What's happening here? We are using .map on the *numbers* array, the map is iterating on each element of the array and passes it to our function. The goal of the function is to produce and return a new value from the one passed so that map can replace it.
+What's happening here? We are using .map on the *numbers* array, the map is iterating on each element of the array and passes it to our function. The goal of the function is to produce and return a new value from the one passed so that map can replace it.<br>
+這裡發生什麼事? 被我們使用 .map 在這 *numbers* 陣列, 這個 map 正在迭代每一個元素從陣列之中以及通過它到我們的函式. 這個函式的目的是為了生產與返回一個新的值從一個通過以便 map 可以取代它.
 
-Lets extract this function to make it more clear, just for this once:
+Lets extract this function to make it more clear, just for this once:<br>
+讓我們提取這個函式讓它更乾淨，只是為了這一次:
+
 
 ```js
 const doubleN = function(n) { return n * 2; };
@@ -729,9 +793,11 @@ const doubledNumbers = numbers.map(doubleN);
 console.log(doubledNumbers); // [0, 2, 4, 6, 8, 10, 12]
 ```
 
-```numbers.map(doubleN)``` produces ```[doubleN(0), doubleN(1), doubleN(2), doubleN(3), doubleN(4), doubleN(5), doubleN(6)]``` which is equal to ```[0, 2, 4, 6, 8, 10, 12]```.
+```numbers.map(doubleN)``` produces ```[doubleN(0), doubleN(1), doubleN(2), doubleN(3), doubleN(4), doubleN(5), doubleN(6)]``` which is equal to ```[0, 2, 4, 6, 8, 10, 12]```.<br>
+```numbers.map(doubleN)``` 生產 ```[doubleN(0), doubleN(1), doubleN(2), doubleN(3), doubleN(4), doubleN(5), doubleN(6)]``` 哪一個等於 ```[0, 2, 4, 6, 8, 10, 12]```.
 
-> **Note:** If you do not need to return a new array and just want to do a loop that has side effects, you might just want to use a for / forEach loop instead of a map.
+> **Note:** If you do not need to return a new array and just want to do a loop that has side effects, you might just want to use a for / forEach loop instead of a map.<br>
+> **注意:** 如果你不需要返回一個陣列以及只想要執行迴圈那有副作用, 你或許只想要使用一個 for / forEach 迴圈取代一個 map.
 
 ##### <a name="arrayprototypefilter"></a> Array.prototype.filter()
 
@@ -742,11 +808,14 @@ const evenNumbers = numbers.filter(function(n) {
 console.log(evenNumbers); // [0, 2, 4, 6]
 ```
 
-We are using .filter on the *numbers* array, filter is iterating on each element of the array and passes it to our function. The goal of the function is to return a boolean that will determine whether the current value will be kept or not. Filter then returns the array with only the kept values.
+We are using .filter on the *numbers* array, filter is iterating on each element of the array and passes it to our function. The goal of the function is to return a boolean that will determine whether the current value will be kept or not. Filter then returns the array with only the kept values.<br>
+我們正在使用 .filter 在這 *numbers* 陣列, filter 正在迭代在每一個元素上在這陣列以及通過它到我們的函式中. 函式的目標是返回一個布爾值，它將確定當前值是否被保留. Filter 接著返回陣列只有保留值.
+
 
 ##### <a name="arrayprototypereduce"></a> Array.prototype.reduce()
 
-The reduce method goal is to *reduce* all elements of the array it iterates on into a single value. How it aggregates those elements is up to you.
+The reduce method goal is to *reduce* all elements of the array it iterates on into a single value. How it aggregates those elements is up to you.<br>
+這 reduce 方法目的是為了 *reduce* 每個正在迭代的陣列元素在進入一個單一值.它如何聚合這些元素取決於你.
 
 ```js
 const sum = numbers.reduce(
@@ -759,72 +828,98 @@ const sum = numbers.reduce(
 console.log(sum) //21
 ```
 
-Just like for .map and .filter methods, .reduce is applied on an array and takes a function as the first parameter.
+Just like for .map and .filter methods, .reduce is applied on an array and takes a function as the first parameter.<br>
+就像.map和.filter方法一樣, .reduce應用於一個陣列，並將一個函式作為第一個參數。
 
-This time though, there are changes:
+This time though, there are changes:<br>
+這一次, 有改變:
 
 - .reduce takes two parameters
+- .reduce 需要兩個參數
 
-The first parameter is a function that will be called at each iteration step.
+The first parameter is a function that will be called at each iteration step.<br>
+第一個參數是在每個迭代步驟中調用的函式
 
-The second parameter is the value of the accumulator variable (*acc* here) at the first iteration step (read next point to understand).
+The second parameter is the value of the accumulator variable (*acc* here) at the first iteration step (read next point to understand).<br>
+第二個參數是累加器變數的值  (*acc* 在這裡) 在第一個迭代步驟 (閱讀下一點來了解).
 
 - Function parameters
+- 函式參數
 
-The function you pass as the first parameter of .reduce takes two parameters. The first one (*acc* here) is the accumulator variable, whereas the second parameter (*n*) is the current element.
-
-The accumulator variable is equal to the return value of your function at the **previous** iteration step. At the first step of the iteration, *acc* is equal to the value you passed as .reduce second parameter.
-
-###### At first iteration step
-
-```acc = 0``` because we passed in 0 as the second parameter for reduce
-
-```n = 0``` first element of the *number* array
-
-Function returns *acc* + *n* --> 0 + 0 --> 0
+The function you pass as the first parameter of .reduce takes two parameters. The first one (*acc* here) is the accumulator variable, whereas the second parameter (*n*) is the current element.<br>
+這函式你作為第一個參數傳遞在 .reduce 中需要兩個參數. 第一個 (*acc* 在這裡) 是一個累加器變數, 而第二個參數 (*n*) 是現在的元素
 
 
-###### At second iteration step
+The accumulator variable is equal to the return value of your function at the **previous** iteration step. At the first step of the iteration, *acc* is equal to the value you passed as .reduce second parameter.<br>
+累加器變數等於函式的返回值在這 **previous** 迭代步驟. 在迭代的第一步, *acc* 等於你傳遞的 .reduce 第二個參數.
 
-```acc = 0``` because its the value the function returned at the previous iteration step
+###### 迭代第一步
 
-```n = 1``` second element of the *number* array
+```acc = 0``` because we passed in 0 as the second parameter for reduce<br>
+```acc = 0``` 因為我們通過0作為reduce的第二個參數
 
-Function returns *acc* + *n* --> 0 + 1 --> 1
+```n = 0``` first element of the *number* array<br>
+```n = 0``` 在這 *number* 陣列中第一個元素
 
-###### At third iteration step
+Function returns *acc* + *n* --> 0 + 0 --> 0<br>
+函式回傳 *acc* + *n* --> 0 + 0 --> 0
 
-```acc = 1``` because its the value the function returned at the previous iteration step
+###### 迭代第二步
 
-```n = 2``` third element of the *number* array
+```acc = 0``` because its the value the function returned at the previous iteration step<br>
+```acc = 0``` 因為它在上一次迭代步驟中返回函式的值
 
-Function returns *acc* + *n* --> 1 + 2 --> 3
+```n = 1``` second element of the *number* array<br>
+```n = 1``` 在這個 *number* 陣列中第二個元素
 
-###### At fourth iteration step
+Function returns *acc* + *n* --> 0 + 1 --> 1<br>
+函式返回 *acc* + *n* --> 0 + 1 --> 1
 
-```acc = 3``` because it's the value the function returned at the previous iteration step
+###### 迭代第三步
 
-```n = 3``` fourth element of the *number* array
+```acc = 1``` because its the value the function returned at the previous iteration step<br>
+```acc = 1``` 因為它在上一次迭代步驟中返回函式的值
 
-Function returns *acc* + *n* --> 3 + 3 --> 6
+```n = 2``` third element of the *number* array<br>
+```n = 2``` 在這個 *number* 陣列中第三個元素
 
-###### [...] At last iteration step
+Function returns *acc* + *n* --> 1 + 2 --> 3<br>
+函式返回 *acc* + *n* --> 1 + 2 --> 3
 
-```acc = 15``` because it's the value the function returned at the previous iteration step
+###### 迭代第四步
 
-```n = 6``` last element of the *number* array
+```acc = 3``` because it's the value the function returned at the previous iteration step<br>
+```acc = 3``` 因為它在上一次迭代步驟中返回函式的值
 
-Function returns *acc* + *n* --> 15 + 6 --> 21
+```n = 3``` fourth element of the *number* array<br>
+```n = 3``` 在這個 *number* 陣列中第四個元素
 
-As it is the last iteration step, **.reduce** returns 21.
+Function returns *acc* + *n* --> 3 + 3 --> 6 <br>
+函式返回 *acc* + *n* --> 3 + 3 --> 6 
+
+###### [...] 迭代最後一步
+
+```acc = 15``` because it's the value the function returned at the previous iteration step<br>
+```acc = 15``` 因為它在上一次迭代步驟中返回函式的值
+
+```n = 6``` last element of the *number* array<br>
+```n = 6``` 在這個 *number* 陣列中最後一個元素
+
+Function returns *acc* + *n* --> 15 + 6 --> 21<br>
+函式返回 *acc* + *n* --> 15 + 6 --> 21
+
+As it is the last iteration step, **.reduce** returns 21.<br>
+因為它是最後的迭代步驟, **.reduce** 返回21.
 
 #### <a name="external-resource-2"></a> 外部資源 
 
 - [Understanding map / filter / reduce in JS](https://hackernoon.com/understanding-map-filter-and-reduce-in-javascript-5df1c7eee464)
 
+
 ### <a name="spread-operator-"></a> 展開運算子 "..."
 
-The spread operator ```...``` has been introduced with ES2015 and is used to expand elements of an iterable (like an array) into places where multiple elements can fit.
+The spread operator ```...``` has been introduced with ES2015 and is used to expand elements of an iterable (like an array) into places where multiple elements can fit.<br>
+展開運算子 ```...``` 已經被提出在 ES2015 以及用於將一個可迭代的元素（像陣列）擴展到多個元素可以適合的地方。
 
 #### <a name="sample-code-3"></a> 示例代碼
 
@@ -861,16 +956,20 @@ console.log(n); // { x: 1, y: 2, a: 3, b: 4 }
 
 ##### <a name="in-iterables-like-array-25"></a> 迭代用法 (如同 array)
 
-If we have the two following arrays:
+If we have the two following arrays:<br>
+如果我們有以下兩個陣列:
 
 ```js
 const arr1 = ["a", "b", "c"];
 const arr2 = [arr1, "d", "e", "f"]; // [["a", "b", "c"], "d", "e", "f"]
 ```
 
-*arr2* the first element is an array because *arr1* is injected as is into *arr2*. But what we want is *arr2* to be an array of letters. To do so, we can *spread* the elements of *arr1* into *arr2*.
+*arr2* the first element is an array because *arr1* is injected as is into *arr2*. But what we want is *arr2* to be an array of letters. To do so, we can *spread* the elements of *arr1* into *arr2*.<br>
+*arr2* 這個第一個元素是一個陣列因為 *arr1* 被注入作為進入 *arr2*. 但我們想要的是* arr2 *是一個字母數組.為此, 我們可以 *擴展* 這元素 *arr1* 到 *arr2*.
 
-With spread operator
+With spread operator<br>
+用展開運算子
+
 
 ```js
 const arr1 = ["a", "b", "c"];
@@ -879,7 +978,8 @@ const arr2 = [...arr1, "d", "e", "f"]; // ["a", "b", "c", "d", "e", "f"]
 
 ##### <a name="function-rest-parameter"></a> 函式剩餘參數
 
-In function parameters, we can use the rest operator to inject parameters into an array we can loop in. There is already an **argument** object bound to every function that is equal to an array of all the parameters passed into the function.
+In function parameters, we can use the rest operator to inject parameters into an array we can loop in. There is already an **argument** object bound to every function that is equal to an array of all the parameters passed into the function.<br>
+在函式參數中, 我們可以使用這個剩餘的運算子注入參數進入一個我們可以循環陣列. 已經有一個 **argument** 物件範圍到每一個函式等於一個陣列在全部參數通過進入這個函式中.
 
 ```js
 function myFunc() {
@@ -896,17 +996,23 @@ myFunc("Nick", "Anderson", 10, 12, 6);
 // 6
 ```
 
-But let's say that we want this function to create a new student with its grades and with its average grade. Wouldn't it be more convenient to extract the first two parameters into two separate variables, and then have all the grades in an array we can iterate over?
+But let's say that we want this function to create a new student with its grades and with its average grade. Wouldn't it be more convenient to extract the first two parameters into two separate variables, and then have all the grades in an array we can iterate over?<br>
+但是讓我們說，我們希望這個功能可以創建一個具有成績和平均成績的新學生. 將前兩個參數提取為兩個單獨的變量不是更方便, 然後我們可以遍歷一個陣列中的所有成績?
 
-That's exactly what the rest operator allows us to do!
+That's exactly what the rest operator allows us to do!<br>
+就是這樣剩餘運算子允許我們這麼做!
+
+
 
 ```js
 function createStudent(firstName, lastName, ...grades) {
   // firstName = "Nick"
   // lastName = "Anderson"
   // [10, 12, 6] -- "..." takes all other parameters passed and creates a "grades" array variable that contains them
+  //獲取傳遞的所有其他參數，並創建一個“grade” 陣列變數包含他們
 
   const avgGrade = grades.reduce((acc, curr) => acc + curr, 0) / grades.length; // computes average grade from grades
+  //計算平均成績從每個成績
 
   return {
     firstName: firstName,
@@ -926,26 +1032,31 @@ console.log(student);
 // }
 ```
 
-> **Note:** createStudent function is bad because we don't check if grades.length exists or is different from 0. But it's easier to read this way, so I didn't handle this case.
+> **Note:** createStudent function is bad because we don't check if grades.length exists or is different from 0. But it's easier to read this way, so I didn't handle this case.<br>
+> **注意:** createStudent 函式是壞的因為我們不檢查假如 grades.length 存在或不同從 0. 但這種方式很容易讀, 所以我不處理這種情況.
 
 
 ##### <a name="object-properties-spreading"></a> 物件屬性擴展
 
-For this one, I recommend you read previous explanations about the rest operator on iterables and function parameters.
+For this one, I recommend you read previous explanations about the rest operator on iterables and function parameters.<br>
+對於這一個，我建議您閱讀有關剩餘運算子以前的有關迭代和函式參數的說明.
+
 
 ```js
 const myObj = { x: 1, y: 2, a: 3, b: 4 };
-const { x, y, ...z } = myObj; // object destructuring here
+const { x, y, ...z } = myObj; // object destructuring here 在這裡物件解構
 console.log(x); // 1
 console.log(y); // 2
 console.log(z); // { a: 3, b: 4 }
 
 // z is the rest of the object destructured: myObj object minus x and y properties destructured
+// z 是這個物件的剩餘解構: myObj 物件減去 x 和 y 屬性解構
 
 const n = { x, y, ...z };
 console.log(n); // { x: 1, y: 2, a: 3, b: 4 }
 
 // Here z object properties are spread into n
+// 這裡 z 物件屬性擴展到 n 
 ```
 
 #### <a name="external-resources"></a> 外部資源
@@ -957,7 +1068,8 @@ console.log(n); // { x: 1, y: 2, a: 3, b: 4 }
 
 ### <a name="object-property-shorthand-29"></a> Object 屬性簡寫
 
-When assigning a variable to an object property, if the variable name is equal to the property name, you can do the following:
+When assigning a variable to an object property, if the variable name is equal to the property name, you can do the following:<br>
+當一個變數分配給一個物件屬性, 假如這個變數名稱等於這個屬性名稱, 你可以做以下:
 
 ```js
 const x = 10;
@@ -967,24 +1079,27 @@ console.log(myObj.x) // 10
 
 #### <a name="explanation-2"></a> 說明
 
-Usually (pre-ES2015) when you declare a new *object literal* and want to use variables as object properties values, you would write this kind of code:
+Usually (pre-ES2015) when you declare a new *object literal* and want to use variables as object properties values, you would write this kind of code:<br>
+通常（在ES2015之前）當你聲明一個新的 *物件字面量* 並且想要使用變數作為物件屬性值時，你會寫這樣的代碼:
 
 ```js
 const x = 10;
 const y = 20;
 
 const myObj = {
-  x: x, // assigning x variable value to myObj.x
-  y: y // assigning y variable value to myObj.y
+  x: x, // assigning x variable value to myObj.x  //分配 x 變數值到 myObj.x 
+  y: y // assigning y variable value to myObj.y  //分配 y 變數值到 myObj.y 
 };
 
 console.log(myObj.x) // 10
 console.log(myObj.y) // 20
 ```
 
-As you can see, this is quite repetitive because the properties name of myObj are the same as the variable names you want to assign to those properties.
+As you can see, this is quite repetitive because the properties name of myObj are the same as the variable names you want to assign to those properties.<br>
+正如你看到的, 這是相當重複的因為這個屬性名稱與要分配給這些屬性的變數名稱相同
 
 With ES2015, when the variable name is the same as the property name, you can do this shorthand:
+用 ES2015, 當變量名與屬性名稱相同時可以進行簡化:
 
 ```js
 const x = 10;
