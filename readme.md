@@ -369,7 +369,7 @@ console.log(double(2)) // 4
 
 ```js
 const double = x => x * 2; // Same function written as an arrow function with implicit return
-//一些函式寫為一個箭頭函式帶有隱含的回報
+//相同函式寫為一個箭頭函式帶有隱含的回報
 console.log(double(2)) // 4
 ```
 
@@ -378,7 +378,7 @@ console.log(double(2)) // 4
 - *this* 參考
 
 In an arrow function, *this* is equal to the *this* value of the enclosing execution context. Basically, with arrow functions, you don't have to do the "that = this" trick before calling a function inside a function anymore.<br>
-在一個箭頭函式中. *this* 等於 *this* 封閉執行內容的值. 基本上, 用箭頭函式, 你不必做 "that = this" 手法在函數中調用一個函數之前.
+在一個箭頭函式中. *this* 等於 *this* 封閉執行內容的值. 基本上, 用箭頭函式, 你不必做 "that = this" 手法在函式中調用一個函式之前.
 
 ```js
 function myFunc() {
@@ -394,43 +394,56 @@ function myFunc() {
 
 ##### <a name="concision"> 簡要
 
-Arrow functions are more concise than traditional functions in many ways. Let's review all the possible cases:
+Arrow functions are more concise than traditional functions in many ways. Let's review all the possible cases:<br>
+箭頭函式是比傳統函式更簡潔在許多方面. 讓我們來看看所有可能情況:
+
 
 - Implicit VS Explicit return
+- 隱含 VS 明確 返回
 
-An **explicit return** is a function where the *return* keyword is used in its body.
+An **explicit return** is a function where the *return* keyword is used in its body.<br>
+一個 **明確返回** 是一個函式 *return* 關鍵字在其正文中使用.
 
 ```js
   function double(x) {
     return x * 2; // this function explicitly returns x * 2, *return* keyword is used
-  }
+    //這個函式 明確返回 x * 2, *return* 關鍵字被使用
+  }
 ```
 
-In the traditional way of writing functions, the return was always explicit. But with arrow functions, you can do *implicit return* which means that you don't need to use the keyword *return* to return a value.
+In the traditional way of writing functions, the return was always explicit. But with arrow functions, you can do *implicit return* which means that you don't need to use the keyword *return* to return a value.<br>
+在寫函式的傳統方法中, 回傳總是明確的. 但用箭頭函式, 你可以做 *隱含返回* 意味著你不需要使用關鍵字 *return* 返回一個值
 
-To do an implicit return, the code must be written in a one-line sentence.
+To do an implicit return, the code must be written in a one-line sentence.<br>
+做一個隱含返回, 程式碼必須用一行句子寫成
 
 ```js
   const double = (x) => {
-    return x * 2; // Explicit return here
-  }
+    return x * 2; // Explicit return here 這裡隱含返回
+  }
 ```
 
-Since there only is a return value here, we can do an implicit return.
+Since there only is a return value here, we can do an implicit return.<br>
+由於這裡者有一個返回值, 我們可以做一個隱含返回.
 
 ```js
   const double = (x) => x * 2;
 ```
 
-To do so, we only need to **remove the brackets** and the **return** keyword. That's why it's called an *implicit* return, the *return* keyword is not there, but this function will indeed return ```x * 2```.
+To do so, we only need to **remove the brackets** and the **return** keyword. That's why it's called an *implicit* return, the *return* keyword is not there, but this function will indeed return ```x * 2```.<br>
+為此, 我們只需要 **刪除括號** 和這 **return** 關鍵字. 那是為什麼他稱為一個 *隱含* 返回, 這 *return* 關鍵字不在那裡, 但這函式確實會返回 ```x * 2``` .
 
-> **Note:** If your function does not return a value (with *side effects*), it doesn't do an explicit nor an implicit return.
 
-Besides, if you want to implicitly return an *object* you **must have parenthesis around it** since it will conflict with the block braces:
+> **Note:** If your function does not return a value (with *side effects*), it doesn't do an explicit nor an implicit return.<br>
+> **注意:** 如果你的函示不返回一個值 (有 *副作用*), 它不做一個明確也不做一個隱含返回.
+
+Besides, if you want to implicitly return an *object* you **must have parenthesis around it** since it will conflict with the block braces:<br>
+此外, 如果你想要隱含地返回一個 *object* 你 **必須有周圍的括號** 因為它將與塊大括號衝突:
 
 ```js
 const getPerson = () => ({ name: "Nick", age: 24 })
 console.log(getPerson()) // { name: "Nick", age: 24 } -- object implicitly returned by arrow function
+// 物件隱含地透過箭頭函式返回
 ```
 
 - Only one argument
