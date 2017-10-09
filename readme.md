@@ -1741,4 +1741,4 @@ myArray.push("firstEl") // myArray is being mutated myArray已經被改變
 A variable is said to be *immutable* if it can't be mutated.<br>
 一個變數被稱作是 *不可變* 假如它不能被改變
 
-[Check MDN Mutable article](https://developer.mozilla.org/en-US/docs/Glossary/Mutable) for more details.
+[Check MDN Mutable article](https://developer.mozilla.org/en-US/docs/Glossary/Mutable) 對於更多細節.
