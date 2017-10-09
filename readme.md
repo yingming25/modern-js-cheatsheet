@@ -1120,9 +1120,11 @@ console.log(myObj.y) // 20
 
 ### <a name="promises"></a> Promises
 
-A promise is an object which can be returned synchronously from an asynchronous function ([ref](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261#3cd0)).
+A promise is an object which can be returned synchronously from an asynchronous function ([ref](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261#3cd0)).<br>
+一個 promise 是一個物件可以同步地被返回從一個非同步函式 ([ref](https://medium.com/javascript-scene/master-the-javascript-interview-what-is-a-promise-27fc71e77261#3cd0)).
 
-Promises can be used to avoid [callback hell](http://callbackhell.com/), and they are more and more frequently encountered in modern JavaScript projects.
+Promises can be used to avoid [callback hell](http://callbackhell.com/), and they are more and more frequently encountered in modern JavaScript projects.<br>
+Promises 可以被用來避免 [回呼地獄](http://callbackhell.com/), 以及它們是越來越頻繁地遇到在現代 JavaScript 專案中.
 
 #### <a name="sample-code-4"></a> 示例代碼
 
@@ -1140,41 +1142,54 @@ fetchingPosts
 
 #### <a name="explanation-3"></a> 說明
 
-When you do an *Ajax request* the response is not synchronous because you want a resource that takes some time to come. It even may never come if the resource you have requested is unavailable for some reason (404).
+When you do an *Ajax request* the response is not synchronous because you want a resource that takes some time to come. It even may never come if the resource you have requested is unavailable for some reason (404).<br>
+當你做一個 *Ajax 請求* 這個反應不是同步因為你想要一個資源需要一些時間. 它甚至可能永遠不會來假如這個資源你已經請求由於某些原因不可用 (404).
 
-To handle that kind of situations, ES2015 has given us *promises*. Promises can have three different states:
+To handle that kind of situations, ES2015 has given us *promises*. Promises can have three different states:<br>
+為了處理這些情況, ES2015 已經給我們 *promises*. Promises 可以有三種不同狀態:
 
-- Pending
-- Fulfilled
-- Rejected
+- Pending 進行中
+- Fulfilled 已成功
+- Rejected 已失敗
 
-Let's say we want to use promises to handle an Ajax request to fetch the resource X.
+Let's say we want to use promises to handle an Ajax request to fetch the resource X.<br>
+讓我們說我們想要使用 promises 處理一個 Ajax 請求為了取這個資源 X.
 
 ##### <a name="create-the-promise"></a> 創建 promise
 
-We firstly are going to create a promise. We will use the jQuery get method to do our Ajax request to X.
+We firstly are going to create a promise. We will use the jQuery get method to do our Ajax request to X.<br>
+我們首先要創建一個 promise. 我們將會使用這個 jQuery 取得方法做我們的 Ajax 請求給 X.
+
 
 ```js
 const xFetcherPromise = new Promise( // Create promise using "new" keyword and store it into a variable
+// 創建一個 promise 使用 "new" 關鍵字以及將其儲存在變數中
   function(resolve, reject) { // Promise constructor takes a function parameter which has resolve and reject parameters itself
-    $.get("X") // Launch the Ajax request
-      .done(function(X) { // Once the request is done...
+  // Promise 構造函數需要它自己的解析和拒絕的函式參數
+    $.get("X") // Launch the Ajax request 啟動這個 Ajax請求
+      .done(function(X) { // Once the request is done... 請求完成...
         resolve(X); // ... resolve the promise with the X value as parameter
+        // ... 解析這個 promise 用這個 X 作為參數值
       })
-      .fail(function(error) { // If the request has failed...
+      .fail(function(error) { // If the request has failed... 假如請求失敗...
         reject(error); // ... reject the promise with the error as parameter
+        //...拒絕這個 promise 用這個 error 作為參數
       });
   }
 )
 ```
 
-As seen in the above sample, the Promise object takes an *executor* function which takes two parameters **resolve** and **reject**. Those parameters are functions which when called are going to move the promise *pending* state to respectively a *fulfilled* and *rejected* state.
+As seen in the above sample, the Promise object takes an *executor* function which takes two parameters **resolve** and **reject**. Those parameters are functions which when called are going to move the promise *pending* state to respectively a *fulfilled* and *rejected* state.<br>
+如上例所示, 這個 Promise 物件採取 *executor* 函式需要兩個參數 **resolve** 以及 **reject**. 那些參數是當參數被取用將要移動這個 promise *進行中* 狀態到各自的一個 *已成功* 和 *已失敗* 狀態時的功能
 
-The promise is in pending state after instance creation and it's *executor* function is executed immediately. Once one of the function *resolve* or *reject* is called in the *executor* function, the promise will call its associated handlers.
+
+The promise is in pending state after instance creation and it's *executor* function is executed immediately. Once one of the function *resolve* or *reject* is called in the *executor* function, the promise will call its associated handlers.<br>
+這個 promise 是在進行中狀態在實例創建之後以及它是 *執行者* 函式被立即執行. 一次一個函式中的 *解析* 或 *已失敗* 在函式中被稱作 *執行者*, 這個 promise 會呼叫它的相關處理器.
 
 ##### <a name="promise-handlers-usage"></a> Promise 處理器運用
 
-To get the promise result (or error), we must attach to it handlers by doing the following:
+To get the promise result (or error), we must attach to it handlers by doing the following:<br>
+為了取得這個 promise 結果 (或 錯誤), 我們必須通過執行以下操作來附加到處理器：
 
 ```js
 xFetcherPromise
@@ -1186,11 +1201,14 @@ xFetcherPromise
   })
 ```
 
-If the promise succeeds, *resolve* is executed and the function passed as ```.then``` parameter is executed.
+If the promise succeeds, *resolve* is executed and the function passed as ```.then``` parameter is executed.<br>
+如果這個 promise 成功, *解析* 被執行以及這個函式通過 ```.then``` 參數被執行.
 
-If it fails, *reject* is executed and the function passed as ```.catch``` parameter is executed.
+If it fails, *reject* is executed and the function passed as ```.catch``` parameter is executed.<br>
+如果它失敗, *拒絕* 被執行以及這個函式通過 ```.catch``` 參數被執行.
 
-> **Note :** If the promise has already been fulfilled or rejected when a corresponding handler is attached, the handler will be called, so there is no race condition between an asynchronous operation completing and its handlers being attached. [(Ref: MDN)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#Description)
+> **Note :** If the promise has already been fulfilled or rejected when a corresponding handler is attached, the handler will be called, so there is no race condition between an asynchronous operation completing and its handlers being attached. [(Ref: MDN)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#Description)<br>
+> **注意 :** 如果這個 promise 已經成功或拒絕當一個對應的處理器被附加, 這個處理器將會被呼叫, 所以沒有競爭條件在非同步操作完成之間以及它的處理器被附加. [(Ref: MDN)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#Description)
 
 #### <a name="external-resources-32"></a> 外部資源
 
@@ -1203,9 +1221,11 @@ If it fails, *reject* is executed and the function passed as ```.catch``` parame
 
 ### <a name="template-literals"></a> 模板字面量
 
-Template literals is an [*expression interpolation*](https://en.wikipedia.org/wiki/String_interpolation) for single and multiple-line strings.
+Template literals is an [*expression interpolation*](https://en.wikipedia.org/wiki/String_interpolation) for single and multiple-line strings.<br>
+模板字面輛是一個 [*表達式插值*](https://en.wikipedia.org/wiki/String_interpolation) for single and multiple-line strings.
 
-In other words, it is a new string syntax in which you can conveniently use any JavaScript expressions (variables for instance).
+In other words, it is a new string syntax in which you can conveniently use any JavaScript expressions (variables for instance).<br>
+在另一方面, 它是一個新的字串語法您可以在其中方便地使用任何 JavaScript 表達式 (例如變數).
 
 #### <a name="sample-code-5"></a> 示例代碼
 
@@ -1213,7 +1233,7 @@ In other words, it is a new string syntax in which you can conveniently use any 
 const name = "Nick";
 `Hello ${name}, the following expression is equal to four : ${2+2}`;
 
-// Hello Nick, the following expression is equal to four: 4
+// Hello Nick, 以下表達式等於4 : 4
 ```
 
 #### <a name="external-resources-2"></a> 外部資源
@@ -1223,11 +1243,15 @@ const name = "Nick";
 
 ### <a name="tagged-template-literals"></a> 標記模板字面量
 
-Template tags are *functions that can be prefixed to a [template literal](#template-literals)*. When a function is called this way, the first parameter is an array of the *strings* that appear between the template's interpolated variables, and the subsequent paremeters are the interpolated values. Use a spread operator `...` to capture all of them. [(Ref: MDN)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_template_literals).
+Template tags are *functions that can be prefixed to a [template literal](#template-literals)*. When a function is called this way, the first parameter is an array of the *strings* that appear between the template's interpolated variables, and the subsequent paremeters are the interpolated values. Use a spread operator `...` to capture all of them. [(Ref: MDN)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_template_literals).<br>
+模板標籤是* 可以作為前綴 [template literal](#template-literals) 的函式 *.當一個函式用這個方式呼叫,第一個參數是一個陣列在這 *字串* 出現在模板的插值變數之間,並且隨後的參數是插值. 使用一個展開運算子 `...` 抓取他們的全部 [(Ref: MDN)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_template_literals).
 
-> **Note :** A famous library named [styled-components](https://www.styled-components.com/) heavily relies on this feature.
 
-Below is a toy example on they work.
+> **Note :** A famous library named [styled-components](https://www.styled-components.com/) heavily relies on this feature.<br>
+> **注意 :** 一個知名函式庫叫作[styled-components](https://www.styled-components.com/) 重度依賴於此功能.
+
+Below is a toy example on they work.<br>
+以下是一個他們運行小例子
 ```js
 function highlight(strings, ...values) {
   const interpolation = strings.reduce((prev, next) => {
@@ -1244,7 +1268,8 @@ highlight`I like ${condiment} on ${meal}.`;
 // "<mark>I like jam on toast.</mark>"
 ```
 
-A more interesting example: 
+A more interesting example: <br>
+一個更有趣的例子:
 ```js
 function comma(strings, ...values) {
   return strings.reduce((prev, next) => {
@@ -1256,7 +1281,7 @@ function comma(strings, ...values) {
 
 const snacks = ['apples', 'bananas', 'cherries'];
 comma`I like ${snacks} to snack on.`;
-// "I like apples, bananas, cherries to snack on."
+// "I like apples, bananas, cherries to snack on." 我喜歡吃蘋果, 香蕉, 櫻桃
 ```
 
 #### <a name="external-resources-4"></a> 外部資源
@@ -1265,17 +1290,22 @@ comma`I like ${snacks} to snack on.`;
 
 ### <a name="imports--exports"></a> Imports / Exports
 
-ES6 modules are used to access variables or functions in a module explicitly exported by the modules it imports.
+ES6 modules are used to access variables or functions in a module explicitly exported by the modules it imports.<br>
+ES6模塊被使用來存取變數或函式在一個模塊明確地輸出透過這模塊輸入.
 
-I highly recommend to take a look at MDN resources on import/export (see external resources below), it is both straightforward and complete.
+
+I highly recommend to take a look at MDN resources on import/export (see external resources below), it is both straightforward and complete.<br>
+我強烈建議您查看MDN資源在 import/export , 它既簡單又完整.
 
 #### <a name="explanation-with-sample-code-1"></a> 示例代碼說明
 
 ##### <a name="named-exports"></a> 命名 exports
 
-Named exports are used to export several values from a module.
+Named exports are used to export several values from a module.<br>
+命名的導出用於從模塊輸出多個值.
 
-> **Note :** You can only name-export [first-class citizens](https://en.wikipedia.org/wiki/First-class_citizen) that have a name.
+> **Note :** You can only name-export [first-class citizens](https://en.wikipedia.org/wiki/First-class_citizen) that have a name.<br>
+> **注意 :** 你可以只有輸出名稱 [first-class citizens](https://en.wikipedia.org/wiki/First-class_citizen) 有一個名稱
 
 ```js
 // mathConstants.js
@@ -1287,6 +1317,7 @@ export const alpha = 0.35;
 
 // myFile.js
 import { pi, exp } from './mathConstants.js'; // Named import -- destructuring-like syntax
+//命名輸入 -- 類似解構語法
 console.log(pi) // 3.14
 console.log(exp) // 2.7
 
@@ -1294,22 +1325,27 @@ console.log(exp) // 2.7
 
 // mySecondFile.js
 import * as constants from './mathConstants.js'; // Inject all exported values into constants variable
+//注入全部輸出值進常量變數
 console.log(constants.pi) // 3.14
 console.log(constants.exp) // 2.7
 ```
 
-While named imports looks like *destructuring*, they have a different syntax and are not the same. They don't support default values nor *deep* destructuring.
+While named imports looks like *destructuring*, they have a different syntax and are not the same. They don't support default values nor *deep* destructuring.<br>
+而命名的輸入看起來像 *解構*,他們有一個不同的語法與不同.他們不支援預設值也不支援 *深度* 解構.
 
-Besides, you can do aliases but the syntax is different from the one used in destructuring:
+Besides, you can do aliases but the syntax is different from the one used in destructuring:<br>
+此外, 你可以您可以使用別名，但語法與在解構中使用的語法不同:
 
 ```js
 import { foo as bar } from 'myFile.js'; // foo is imported and injected into a new bar variable
+// foo 被輸入並注入到一個新的 bar 變數中
 ```
 
 
 ##### <a name="default-import--export"></a> 預設 import / export
 
-Concerning the default export, there is only a single default export per module. A default export can be a function, a class, an object or anything else. This value is considered the "main" exported value since it will be the simplest to import. [Ref: MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export#Description)
+Concerning the default export, there is only a single default export per module. A default export can be a function, a class, an object or anything else. This value is considered the "main" exported value since it will be the simplest to import. [Ref: MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export#Description)<br>
+關於預設輸出, 只有一個單個預設輸出給模塊. A 預設輸出可以是一個函式, 一個類, 一個物件或其他任何東西. 這個值是週密考慮過的 "主要" 輸出值因為它將是最簡單的輸入. [Ref: MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/export#Description)
 
 ```js
 // coolNumber.js
@@ -1321,10 +1357,12 @@ export default ultimateNumber;
 // myFile.js
 import number from './coolNumber.js';
 // Default export, independently from its name, is automatically injected into number variable;
+//預設輸出, 獨立於它的命名, 是自動地注入進 number 變數;
 console.log(number) // 42
 ```
 
-Function exporting:
+Function exporting:<br>
+函式輸出: 
 
 ```js
 // sum.js
@@ -1351,9 +1389,11 @@ console.log(result) // 3
 
 ### <a name="-javascript-this"></a> JavaScript *this*
 
-*this* operator behaves differently than in other languages and is in most cases determined by how a function is called. ([Ref: MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)).
+*this* operator behaves differently than in other languages and is in most cases determined by how a function is called. ([Ref: MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)).<br>
+*this* 運算子比其他語言表現不同地, 並且在大多數情況下由函式的調用決定. ([Ref: MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/this)).
 
-This notion is having many subtleties and being quite hard, I highly suggest you to deep dive in the external resources below. Thus, I will provide what I personally have in mind to determine what *this* is equal to. I have learned this tip from [this article written by Yehuda Katz](http://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/).
+This notion is having many subtleties and being quite hard, I highly suggest you to deep dive in the external resources below. Thus, I will provide what I personally have in mind to determine what *this* is equal to. I have learned this tip from [this article written by Yehuda Katz](http://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/).<br>
+這個概念有許多微妙之處以及相當難, 我強烈建議您深入了解下面的外部資源. 因此, 我將提供我個人想到要確定 *this* 等於什麼. 我已經學習 this 訣竅從 [this article written by Yehuda Katz](http://yehudakatz.com/2011/08/11/understanding-javascript-function-invocation-and-this/).
 
 ```js
 function myFunc() {
@@ -1361,14 +1401,20 @@ function myFunc() {
 }
 
 // After each statement, you find the value of *this* in myFunc
+//在每個聲明之後,你發現這個在 myFunc 中的  *this* 值
 
 myFunc.call("myString", "hello") // "myString" -- first .call parameter value is injected into *this*
+// "myString" -- 首先 .call參數值被注入進 *this*
 
 // In non-strict-mode
+//在不嚴格模式
 myFunc("hello") // window -- myFunc() is syntax sugar for myFunc.call(window, "hello")
+// window -- myFunc() 是語法糖對於 myFunc.call(window, "hello")
 
 // In strict-mode
+//在嚴格模式
 myFunc("hello") // undefined -- myFunc() is syntax sugar for myFunc.call(undefined, "hello")
+// undefined -- myFunc() 是語法糖對於 myFunc.call(undefined, "hello")
 ```
 
 ```js
@@ -1377,11 +1423,16 @@ var person = {
 }
 
 person.myFunc.call(person, "test") // person Object -- first call parameter is injected into *this*
+// person 物件 -- 首先 call 參數被注入進 *this*
 person.myFunc("test") // person Object -- person.myFunc() is syntax sugar for person.myFunc.call(person, "test")
+// person 物件 -- person.myFunc() 是語法糖對於 person.myFunc.call(person, "test")
 
 var myBoundFunc = person.myFunc.bind("hello") // Creates a new function in which we inject "hello" in *this* value
+// 創建一個新函式在我們注入 "hello"值 進  *this* 
 person.myFunc("test") // person Object -- The bind method has no effect on the original method
+// person 物件 -- 這個 bind 方法沒效果在這原型方法
 myBoundFunc("test") // "hello" -- myBoundFunc is person.myFunc with "hello" bound to *this*
+// "hello" -- myBoundFunc 是 person.myFunc 隨著 "hello" 限制 *this*
 ```
 
 #### <a name="external-resources-42"></a> 外部資源
@@ -1391,11 +1442,16 @@ myBoundFunc("test") // "hello" -- myBoundFunc is person.myFunc with "hello" boun
 
 ### <a name="class"></a> Class
 
-JavaScript is a [prototype-based](https://en.wikipedia.org/wiki/Prototype-based_programming) language (whereas Java is [class-based](https://en.wikipedia.org/wiki/Class-based_programming) language, for instance). ES6 has introduced JavaScript classes which are meant to be a syntactic sugar for prototype-based inheritance and **not** a new class-based inheritance model ([ref](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)).
+JavaScript is a [prototype-based](https://en.wikipedia.org/wiki/Prototype-based_programming) language (whereas Java is [class-based](https://en.wikipedia.org/wiki/Class-based_programming) language, for instance). ES6 has introduced JavaScript classes which are meant to be a syntactic sugar for prototype-based inheritance and **not** a new class-based inheritance model ([ref](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)).<br>
+JavaScript 是一個 [基於原型](https://en.wikipedia.org/wiki/Prototype-based_programming) 語言(而 Java 是 [基於類](https://en.wikipedia.org/wiki/Class-based_programming) 語言, 對於實例). ES6引入了 JavaScript 類，它們是一種語法糖給基於原型繼承以及 **不是** 一個新的基於類繼承模型([ref](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes)).
 
-The word *class* is indeed error prone if you are familiar with classes in other languages. If you do, avoid assuming how JavaScript classes work on this basis and consider it an entirely different notion.
+The word *class* is indeed error prone if you are familiar with classes in other languages. If you do, avoid assuming how JavaScript classes work on this basis and consider it an entirely different notion.<br>
+這個字 *class* 確實是錯誤傾向於假如你熟悉其他語言的類. 如果你做, 避免假設JavaScript類是如何工作的在這個基礎以及認為它是一個完全不同的概念中.
 
-Since this document is not an attempt to teach you the language from the ground up, I will believe you know what prototypes are and how they behave. But here are some links I found great to understand this notion:
+
+Since this document is not an attempt to teach you the language from the ground up, I will believe you know what prototypes are and how they behave. But here are some links I found great to understand this notion:<br>
+因為這個文件不一個嘗試教你語言從頭開始, 我將相信你知道原型和它們的行為. 但這裡是一些鏈結我發現很好去了解這個概念:
+
 
 - [Understanding Prototypes in JS - Yehuda Katz](http://yehudakatz.com/2011/08/12/understanding-prototypes-in-javascript/)
 - [A plain English guide to JS prototypes - Sebastian Porto](http://sporto.github.io/blog/2013/02/22/a-plain-english-guide-to-javascript-prototypes/)
@@ -1403,7 +1459,8 @@ Since this document is not an attempt to teach you the language from the ground 
 
 #### <a name="samples"></a> 示例
 
-Before ES6, prototype syntax:
+Before ES6, prototype syntax:<br>
+在 ES6 之前, 原型語法:
 
 ```js
 var Person = function(name, age) {
@@ -1415,7 +1472,9 @@ Person.prototype.stringSentence = function() {
 }
 ```
 
-With ES6 class syntax:
+With ES6 class syntax: <br>
+使用 ES6 語法:
+
 
 ```js
 class Person {
@@ -1432,17 +1491,20 @@ class Person {
 const myPerson = new Person("Manu", 23);
 console.log(myPerson.age) // 23
 console.log(myPerson.stringSentence()) // "Hello, my name is Manu and I'm 23
+// 你好, 我的名字是馬努我23歲
 ```
 
 #### <a name="external-resources-5"></a> 外部資源
 
-For prototype understanding:
+For prototype understanding:<br>
+對於了解原型:
 
 - [Understanding Prototypes in JS - Yehuda Katz](http://yehudakatz.com/2011/08/12/understanding-prototypes-in-javascript/)
 - [A plain English guide to JS prototypes - Sebastian Porto](http://sporto.github.io/blog/2013/02/22/a-plain-english-guide-to-javascript-prototypes/)
 - [Inheritance and the prototype chain - MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Inheritance_and_the_prototype_chain)
 
-For classes understanding:
+For classes understanding:<br>
+對於了解類:
 
 - [ES6 Classes in Depth - Nicolas Bevacqua](https://ponyfoo.com/articles/es6-classes-in-depth)
 - [ES6 Features - Classes](http://es6-features.org/#ClassDefinition)
@@ -1450,20 +1512,27 @@ For classes understanding:
 
 ### <a name="async-await"></a> Async Await
 
-In addition to [Promises](#promises), there is a new syntax you might encounter to handle asynchronous code named *async / await*.
+In addition to [Promises](#promises), there is a new syntax you might encounter to handle asynchronous code named *async / await*.<br>
+除了 [Promises](#promises), 有一個新的語法你可能遇到處理非同步程式碼稱為 *async / await*.
 
-The purpose of async/await functions is to simplify the behavior of using promises synchronously and to perform some behavior on a group of Promises. Just as Promises are similar to structured callbacks, async/await is similar to combining generators and promises. ([Ref: MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function))
+The purpose of async/await functions is to simplify the behavior of using promises synchronously and to perform some behavior on a group of Promises. Just as Promises are similar to structured callbacks, async/await is similar to combining generators and promises. ([Ref: MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function))<br>
+async/await 函式的目的是為了簡化行為使用 promises 同步地並在一組 Promise 上執行一些行為. 正如 Promise 類似於結構化回調, async/await 類似結合產生器與 promises. ([Ref: MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function))
 
-> **Note :** You must understand what are promises and how they work before trying to understand async / await since they rely on it.
+> **Note :** You must understand what are promises and how they work before trying to understand async / await since they rely on it.<br>
+> **注意 :**  你必須了解什麼是 promises 以及它們如何運作在嘗試去了解 async / await 之前因為他們依賴於它.
 
-> **Note 2:** [*await* must be used in an *async* function](https://hackernoon.com/6-reasons-why-javascripts-async-await-blows-promises-away-tutorial-c7ec10518dd9#f3f0), which means that you can't use await in the top level of our code since that is not inside an async function.
+> **Note 2:** [*await* must be used in an *async* function](https://hackernoon.com/6-reasons-why-javascripts-async-await-blows-promises-away-tutorial-c7ec10518dd9#f3f0), which means that you can't use await in the top level of our code since that is not inside an async function.<br>
+> **Note 2:** [*await* 必須被使用在一個 *async* 函式中]
 
 #### <a name="sample-code-6"></a> 示例代碼
 
 ```js
 async function getGithubUser(username) { // async keyword allows usage of await in the function and means function returns a promise
+// async 關鍵字允許 await 的使用在函式中以及意味著函式返回一個 promise
   try { // this is how errors are handled with async / await
+  //這是如何用 async / await 處理錯誤
     const response = await fetch(`https://api.github.com/users/${username}`); // "synchronously" waiting fetch promise to resolve before going to next line
+    //"同步地" 等待取回 promise 給  resolve 在下一行之前
     return response.json();
   } catch (err) {
     alert(err);
@@ -1471,17 +1540,21 @@ async function getGithubUser(username) { // async keyword allows usage of await 
 }
 
 getGithubUser('mbeaudru').then(user => console.log(user)); // logging user response - cannot use await syntax since this code isn't in async function
+//登入使用者響應 - 不能使用 await 語法因為這個程式碼不是 async 函式
 ```
 
 #### <a name="explanation-with-sample-code-2"></a> 示例代碼說明
 
-*Async / Await* is built on promises but they allow a more imperative style of code.
+*Async / Await* is built on promises but they allow a more imperative style of code.<br>
+*Async / Await* 被建立在 promises 上但他們允許一個必要的程式碼的樣式.
 
-*async* operator turns a function into a *promise* in which you can use the *await* operator.
+*async* operator turns a function into a *promise* in which you can use the *await* operator.<br>
+*async* 運算子將函式轉換成一個 *promise* 在每一個這個 *await* 你可以使用
 
 ```js
 async function myFunc() {
   // we can use await operator because this function is async
+  //我們可以使用 await 運算子 因為這個函式是非同步
   try {
     return "hello world";
   } catch(e) {
@@ -1490,15 +1563,20 @@ async function myFunc() {
 }
 
 myFunc().then(msg => console.log(msg)) // "hello world" -- myFunc is turned into a promise because of async operator
+// "hello world" -- myFunc 被變成了一個 promise 因為 async 運算子
 ```
 
-When the *return* statement of an async function is reached, the promise is fulfilled with the value returned. If an error is thrown inside an async function, the promise state will turn to *rejected*.
+When the *return* statement of an async function is reached, the promise is fulfilled with the value returned. If an error is thrown inside an async function, the promise state will turn to *rejected*.<br>
+當這個 *返回* 聲明一個非同步函式被實現, 這個 promise 已被完成隨著這個返回值. 如果一個錯誤被拋出在一個非同步函式裡面, 這個 promise 狀態將變成 *已失敗*.
 
-*await* operator is used to wait for a *Promise* to be fulfilled and only can be used inside an *async* function body. When encountered, the code execution is paused until the promise is fulfilled.
+*await* operator is used to wait for a *Promise* to be fulfilled and only can be used inside an *async* function body. When encountered, the code execution is paused until the promise is fulfilled.<br>
+*await* 運算子被用來等待一個 *Promise* 變成已成功 以及只有可以被一個裡面的 *async* 函式內文使用. 遇到時, 這個程式碼執行被暫停直到這個 promise 是已完成.
 
-> **Note :** *fetch* is a Promise that allows to do an AJAX request
+> **Note :** *fetch* is a Promise that allows to do an AJAX request<br>
+> **注意 :** *fetch* 是一個 Promise 允許做一個 AJAX 請求
 
-Let's see how we could fetch a github user with promises first:
+Let's see how we could fetch a github user with promises first:<br>
+讓我們看我們可以獲取一個 github 使用者首先用 promises:
 
 ```js
 function getGithubUser(username) {
@@ -1517,16 +1595,22 @@ getGithubUser('mbeaudru')
   .catch(err => console.log(err));
 ```
 
-Here's the *async / await* equivalent:
+Here's the *async / await* equivalent:<br>
+*async / await* 在這裡是相等的:
 
 ```js
 async function getGithubUser(username) { // promise + await keyword usage allowed
+// promise + await 關鍵字允許使用
   try { // We handle async function errors with try / catch
+  //我們處理非同步函式錯誤用try / catch
     const response = await fetch(`https://api.github.com/users/${username}`); // Execution stops here until fetch promise is fulfilled.
+    //執行暫停直到獲取 promise 成功
     const user = response.json();
     return user; // equivalent of resolving the getGithubUser promise with user value.
+    //相當於用使用者的值解析這 getGithubUser promise
   } catch (err) {
     throw new Error(err); // equivalent of rejecting getGithubUser promise with err value.
+    //相當於用錯誤的值解析這 getGithubUser promise
   }
 }
 
@@ -1535,9 +1619,11 @@ getGithubUser('mbeaudru')
   .catch(err => console.log(err));
 ```
 
-*async / await* syntax is particularly convenient when you need to chain promises that are interdependent.
+*async / await* syntax is particularly convenient when you need to chain promises that are interdependent.<br>
+*async / await* 語法是特別方便的當你需要鏈結 promises 是相互依賴的.
 
-For instance, if you need to get a token in order to be able to fetch a blog post on a database and then the author informations:
+For instance, if you need to get a token in order to be able to fetch a blog post on a database and then the author informations:<br>
+例如, 如果你必須獲取一個憑證以便能夠在資料庫上獲取部落格文章以及作者資訊:
 
 ```js
 async function fetchPostById(postId) {
@@ -1558,7 +1644,8 @@ fetchPostById('gzIrzeo64')
   .catch(err => console.log(err));
 ```
 
-> **Note :** As you can see, *try / catch* are necessary to handle errors. But if you are making *express routes*, you can use a middleware to avoid error handling and have a very pleasant code to read. See [this article from Alex Bazhenov](https://medium.com/@Abazhenov/using-async-await-in-express-with-node-8-b8af872c0016) to learn more.
+> **Note :** As you can see, *try / catch* are necessary to handle errors. But if you are making *express routes*, you can use a middleware to avoid error handling and have a very pleasant code to read. See [this article from Alex Bazhenov](https://medium.com/@Abazhenov/using-async-await-in-express-with-node-8-b8af872c0016) to learn more.<br>
+> **注意 :** 正如你看到的, *try / catch* 去處理錯誤是必要的. 但假如你正在做 *表達路由*, 你可以使用一個中間件來避免錯誤處理以及有一個非常愉快的程式碼可讀. 看看 [這個文章來自 Alex Bazhenov](https://medium.com/@Abazhenov/using-async-await-in-express-with-node-8-b8af872c0016) 來學習更多.
 
 #### <a name="external-resources-6"></a> 外部資源
 
@@ -1573,9 +1660,11 @@ fetchPostById('gzIrzeo64')
 
 ### <a name="truthy--falsy"></a> Truthy / Falsy
 
-In JavaScript, a truthy or falsy value is a value that is being casted into a boolean when evaluated in a boolean context. An example of boolean context would be the evaluation of an ```if``` condition:
+In JavaScript, a truthy or falsy value is a value that is being casted into a boolean when evaluated in a boolean context. An example of boolean context would be the evaluation of an ```if``` condition:<br>
+在 JavaScript 中, 一個真的或假的值是一個值正在鑄造成一個布林值當執行在一個布林環境. 一個布林環境的例子將被這個值的計算在一個 ```if``` 條件:
 
-Every value will be casted to ```true``` unless they are equal to:
+Every value will be casted to ```true``` unless they are equal to:<br>
+每一個值將被鑄造給 ```true``` 直到他們相等:
 
 - false
 - 0
@@ -1584,59 +1673,72 @@ Every value will be casted to ```true``` unless they are equal to:
 - undefined
 - NaN
 
-Here are examples of *boolean context*:
+Here are examples of *boolean context*:<br>
+這裡是一個 *布林語意* 的例子:
 
-- ```if``` condition evaluation
+- ```if``` condition evaluation 條件值的計算
 
 ```js
 if (myVar) {}
 ```
 
-```myVar``` can be any [first-class citizen](https://en.wikipedia.org/wiki/First-class_citizen) (variable, function, boolean) but it will be casted into a boolean because it's evaluated in a boolean context.
+```myVar``` can be any [first-class citizen](https://en.wikipedia.org/wiki/First-class_citizen) (variable, function, boolean) but it will be casted into a boolean because it's evaluated in a boolean context.<br>
+```myVar``` 可以被任何 [第一類居民](https://en.wikipedia.org/wiki/First-class_citizen) (變數, 函式, 布林值) 但它將被鑄造成一個布林值因為它是直行在一個布林環境.
 
-- After logical **NOT** ```!``` operator
+- After logical **NOT** ```!``` operator<br>
+- 在邏輯 **NOT** ```!``` 運算子
 
-This operator returns false if its single operand can be converted to true; otherwise, returns true.
+
+This operator returns false if its single operand can be converted to true; otherwise, returns true.<br>
+這個運算子返回 false 假如它的單個運算可以被轉換成 true; 否則, 返回 true.
 
 ```js
 !0 // true -- 0 is falsy so it returns true
+// true -- 0 是假的所以它返回 true
 !!0 // false -- 0 is falsy so !0 returns true so !(!0) returns false
+//// false -- 0 是假的所以 !0 返回 true 所以 !(!0) 返回  false
 !!"" // false -- empty string is falsy so NOT (NOT false) equals false
+// false -- 空字串是假的所以NOT (NOT false) 等於 false
 ```
 
-- With the *Boolean* object constructor
+- With the *Boolean* object constructor<br>
+用這個 *Boolean* 物件構造函數
 
 ```js
 new Boolean(0) // false
 new Boolean(1) // true
 ```
 
-- In a ternary evaluation
+- In a ternary evaluation 在一個三元值的計算
 
 ```js
 myVar ? "truthy" : "falsy"
 ```
 
-myVar is evaluated in a boolean context.
+myVar is evaluated in a boolean context.<br>
+myVar 被計算在一個布林環境
 
 
 ## <a name="glossary"></a> 詞彙表
 
 ### <a name="-scope"></a> 範圍
 
-The context in which values and expressions are "visible," or can be referenced. If a variable or other expression is not "in the current scope," then it is unavailable for use.
+The context in which values and expressions are "visible," or can be referenced. If a variable or other expression is not "in the current scope," then it is unavailable for use.<br>
+這在環境在值與表達式是 "變數" 中或可以被參考, 如果一個變數或其他表達式不是 "在現在的範圍中" 它不能使用.
 
 Source: [MDN](https://developer.mozilla.org/en-US/docs/Glossary/Scope)
 
 ### <a name="-variable-mutation"></a> 變數變化
 
-A variable is said to have been mutated when its initial value has changed afterward.
+A variable is said to have been mutated when its initial value has changed afterward.<br>
+一個變數被稱作是已經改變當它的初始值已經改變之後
 
 ```js
 var myArray = [];
-myArray.push("firstEl") // myArray is being mutated
+myArray.push("firstEl") // myArray is being mutated myArray已經被改變
 ```
 
-A variable is said to be *immutable* if it can't be mutated.
+A variable is said to be *immutable* if it can't be mutated.<br>
+一個變數被稱作是 *不可變* 假如它不能被改變
 
 [Check MDN Mutable article](https://developer.mozilla.org/en-US/docs/Glossary/Mutable) for more details.
